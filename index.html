@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="km">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node.js &amp; Express.js</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Kantumruy+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <!-- COVER PAGE -->
+    <section class="page cover-page">
+        <div>
+            <div class="cover-badge">BACKEND DEVELOPMENT</div>
+            <h1 class="cover-title">Node.js &amp; Express.js</h1>
+            <p class="cover-subtitle">មេរៀនបង្កើត Backend និង RESTful API ពីមូលដ្ឋានដល់ការអនុវត្ត</p>
+            <p class="cover-desc">
+                សៀវភៅមេរៀននេះរៀបចំឡើងសម្រាប់សិស្សានុសិស្ស និងអ្នកអភិវឌ្ឍន៍គេហទំព័រ ដែលចង់ចេះបង្កើត Server-Side,
+                គ្រប់គ្រង Routing, Middleware និងតភ្ជាប់ Database ដើម្បីបង្កើត REST API ស្តង់ដារ។
+            </p>
+
+            <div class="cover-topics">
+                <div class="cover-topic-card">
+                    <strong>១. Node.js Core &amp; NPM</strong>
+                    យល់ដឹងពី Runtime Environment, Modules និង File System។
+                </div>
+                <div class="cover-topic-card">
+                    <strong>២. Express.js Framework</strong>
+                    ការបង្កើត Server, Routing និង HTTP Methods។
+                </div>
+                <div class="cover-topic-card">
+                    <strong>៣. Middleware &amp; MVC</strong>
+                    ការរៀបចំរចនាសម្ព័ន្ធកូដតាមគំរូ Routes និង Controllers។
+                </div>
+                <div class="cover-topic-card">
+                    <strong>៤. MongoDB &amp; CRUD API</strong>
+                    ការតភ្ជាប់ Database និងគ្រប់គ្រងទិន្នន័យជាក់ស្តែង។
+                </div>
+            </div>
+        </div>
+
+        <div class="cover-footer">
+            <span><strong>រៀបចំដោយ៖ លាត ប្រុស</strong></span>
+        </div>
+    </section>
+
+    <!-- TABLE OF CONTENTS -->
+    <section class="page" id="toc">
+        <div class="page-body">
+            <header class="page-top-header">
+                <span>Node.js &amp; Express.js</span>
+                <span>Table of Contents (មាតិកា)</span>
+            </header>
+
+            <h2 class="ch-title">មាតិកាមេរៀន (Table of Contents)</h2>
+
+            <div class="toc-section-title">ផ្នែកទី ១៖ មូលដ្ឋានគ្រឹះរបស់ Node.js (Node.js Fundamentals)</div>
+            <ul class="toc-list">
+                <li class="toc-item"><a href="#chapter-1"><span>១. សេចក្តីផ្តើមអំពី Node.js &amp; ការដំឡើង (Introduction
+                            &amp; Setup)</span><span class="toc-page">ទំព័រ 3</span></a></li>
+                <li class="toc-item"><a href="#chapter-2"><span>២. ការគ្រប់គ្រងគម្រោងជាមួយ NPM
+                            (package.json)</span><span class="toc-page">ទំព័រ 4</span></a></li>
+                <li class="toc-item"><a href="#chapter-3"><span>៣. ប្រព័ន្ធ Modules ក្នុង Node.js (CommonJS vs ES
+                            Modules)</span><span class="toc-page">ទំព័រ 5</span></a></li>
+                <li class="toc-item"><a href="#chapter-4"><span>៤. ការប្រើប្រាស់ Built-in Modules (fs &amp;
+                            path)</span><span class="toc-page">ទំព័រ 6</span></a></li>
+                <li class="toc-item"><a href="#chapter-5"><span>៥. ការបង្កើត Web Server ដំបូងដោយប្រើ HTTP
+                            Module</span><span class="toc-page">ទំព័រ 7</span></a></li>
+            </ul>
+
+            <div class="toc-section-title">ផ្នែកទី ២៖ ការបង្កើត REST API ជាមួយ Express.js</div>
+            <ul class="toc-list">
+                <li class="toc-item"><a href="#chapter-6"><span>៦. សេចក្តីផ្តើមអំពី Express.js &amp; ការរៀបចំ Structure
+                            គម្រោង</span><span class="toc-page">ទំព័រ 8</span></a></li>
+                <li class="toc-item"><a href="#chapter-7"><span>៧. ការគ្រប់គ្រង Routing &amp; HTTP Methods (GET, POST,
+                            PUT, DELETE)</span><span class="toc-page">ទំព័រ 9</span></a></li>
+                <li class="toc-item"><a href="#chapter-8"><span>៨. ការចាប់ទិន្នន័យពី Request (req.params, req.query,
+                            req.body)</span><span class="toc-page">ទំព័រ 10</span></a></li>
+                <li class="toc-item"><a href="#chapter-9"><span>៩. ការប្រើប្រាស់ Middleware (express.json, Custom
+                            Middleware, CORS)</span><span class="toc-page">ទំព័រ 11</span></a></li>
+                <li class="toc-item"><a href="#chapter-10"><span>១០. ការរៀបចំកូដតាមគំរូ MVC (Routes &amp;
+                            Controllers)</span><span class="toc-page">ទំព័រ 12</span></a></li>
+            </ul>
+
+            <div class="toc-section-title">ផ្នែកទី ៣៖ ការតភ្ជាប់ Database និងការអនុវត្តគម្រោង</div>
+            <ul class="toc-list">
+                <li class="toc-item"><a href="#chapter-11"><span>១១. ការគ្រប់គ្រងអថេរសម្ងាត់ជាមួយ Environment Variables
+                            (.env)</span><span class="toc-page">ទំព័រ 13</span></a></li>
+                <li class="toc-item"><a href="#chapter-12"><span>១២. ការតភ្ជាប់ Express.js ទៅកាន់ MongoDB
+                            (Mongoose)</span><span class="toc-page">ទំព័រ 14</span></a></li>
+                <li class="toc-item"><a href="#chapter-13"><span>១៣. ការបង្កើត CRUD API ពេញលេញ (Create, Read, Update,
+                            Delete)</span><span class="toc-page">ទំព័រ 15</span></a></li>
+                <li class="toc-item"><a href="#chapter-14"><span>១៤. ការគ្រប់គ្រង Error Handling និង HTTP Status
+                            Codes</span><span class="toc-page">ទំព័រ 16</span></a></li>
+            </ul>
+        </div>
+
+        <footer class="page-foot">
+            <span class="author-credit">រៀបចំដោយ៖ លាត ប្រុស</span>
+            <span class="page-num">ទំព័រ 2</span>
+        </footer>
+    </section>
+
+    <!-- CHAPTER 1 -->
+    <section class="page" id="chapter-1">
+        <div class="page-body">
+            <header class="page-top-header">
+                <a href="#toc">Node.js &amp; Express.js</a>
+                <span>1. Introduction to Node.js</span>
+            </header>
+
+            <h2 class="ch-title">1. សេចក្តីផ្តើមអំពី Node.js &amp; ការដំឡើង</h2>
+
+            <p class="step-heading">1. Definition (និយមន័យ):</p>
+            <p class="step-text"><strong>Node.js</strong> គឺជា JavaScript Runtime Environment
+                ដែលអនុញ្ញាតឱ្យយើងអាចដំណើរការកូដ JavaScript នៅខាងក្រៅ Browser (នៅលើ Server ឬកុំព្យូទ័រផ្ទាល់)
+                ដោយប្រើប្រាស់ V8 Engine របស់ Google Chrome។</p>
+
+            <p class="step-heading">2. មុខងារសំខាន់ៗ:</p>
+            <ul class="step-list">
+                <li><strong>បង្កើត Backend &amp; API៖</strong> ប្រើសម្រាប់សរសេរ Server ទទួល និងឆ្លើយតបទិន្នន័យជាមួយ
+                    Frontend (React, Vue, Mobile App)។</li>
+                <li><strong>ដំណើរការលឿន (Non-blocking I/O)៖</strong> អាចទទួលសំណើ (Requests)
+                    ពីអ្នកប្រើប្រាស់ច្រើននាក់ក្នុងពេលតែមួយដោយមិនរង់ចាំគ្នា។</li>
+                <li><strong>ប្រើភាសាតែមួយ (Full-Stack JS)៖</strong> អ្នកសរសេរកូដអាចប្រើភាសា JavaScript ទាំង Frontend និង
+                    Backend។</li>
+                <li><code class="ic">node -v</code> <strong>(ពិនិត្យជំនាន់)៖</strong>
+                    ពាក្យបញ្ជាសម្រាប់ឆែកមើលថាតើកុំព្យូទ័របានដំឡើង Node.js រួចរាល់ឬនៅ។</li>
+            </ul>
+
+            <p class="step-heading">3. ប្រើពេលណា (When to Use):</p>
+            <p class="step-text">ប្រើនៅពេលយើងចង់បង្កើត Server-Side Web Application, RESTful APIs, Real-time Chat Apps
+                ឬប្រព័ន្ធគ្រប់គ្រងទិន្នន័យដែលត្រូវការល្បឿនលឿន។</p>
+
+            <p class="step-heading">4. Syntax (ទម្រង់កូដបង្កើត File ដំបូង - app.js):</p>
+            <div class="code-box">
+                <pre><span class="t-com">// បង្កើតឯកសារឈ្មោះ app.js</span>
+<span class="t-kw">const</span> studentName = <span class="t-str">"សុខា"</span>;
+<span class="t-kw">const</span> course = <span class="t-str">"Node.js &amp; Express.js"</span>;
+
+console.<span class="t-fn">log</span>(<span class="t-str">`សួស្តី ${studentName}! ស្វាគមន៍មកកាន់មេរៀន ${course}`</span>);</pre>
+            </div>
+
+            <p class="step-heading">5. Output (លទ្ធផលនៅលើ Terminal):</p>
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="browser-dots"><span class="browser-dot dot-red"></span><span
+                            class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+                    <div class="terminal-title">Terminal — bash</div>
+                </div>
+                <div class="terminal-body">
+                    <div>$ node -v</div>
+                    <div class="t-out">v22.11.0</div>
+                    <div>$ node app.js</div>
+                    <div class="t-out">សួស្តី សុខា! ស្វាគមន៍មកកាន់មេរៀន Node.js &amp; Express.js</div>
+                </div>
+            </div>
+
+            <div class="summary-box">
+                <strong>6. Summary (សង្ខេបមេរៀន)៖</strong> ដើម្បីដំណើរការកូដ JavaScript លើ Server យើងត្រូវដំឡើង Node.js
+                (ជំនាន់ LTS) រួចប្រើពាក្យបញ្ជា <code class="ic">node ឈ្មោះឯកសារ.js</code> នៅក្នុង Terminal។
+            </div>
+        </div>
+
+        <footer class="page-foot">
+            <span class="author-credit">រៀបចំដោយ៖ លាត ប្រុស</span>
+            <span class="page-num">ទំព័រ 3</span>
+        </footer>
+    </section>
+
+    <!-- CHAPTER 2 -->
+    <section class="page" id="chapter-2">
+        <div class="page-body">
+            <header class="page-top-header">
+                <a href="#toc">Node.js &amp; Express.js</a>
+                <span>2. NPM &amp; Package Management</span>
+            </header>
+
+            <h2 class="ch-title">2. ការគ្រប់គ្រងគម្រោងជាមួយ NPM (package.json)</h2>
+
+            <p class="step-heading">1. Definition (និយមន័យ):</p>
+            <p class="step-text"><strong>NPM (Node Package Manager)</strong> គឺជាកម្មវិធីគ្រប់គ្រងកញ្ចប់កូដ
+                (Libraries/Packages) របស់ Node.js ដែលភ្ជាប់មកជាមួយស្រាប់ពេលយើងដំឡើង Node.js។</p>
+
+            <p class="step-heading">2. មុខងារសំខាន់ៗ:</p>
+            <ul class="step-list">
+                <li><code class="ic">npm init -y</code> <strong>(បង្កើតគម្រោងថ្មី)៖</strong> បង្កើតឯកសារ <code
+                        class="ic">package.json</code> ដោយស្វ័យប្រវត្តិសម្រាប់កត់ត្រាព័ត៌មានគម្រោង។</li>
+                <li><code class="ic">npm install ឈ្មោះកញ្ចប់</code> <strong>(ដំឡើង Library)៖</strong>
+                    ទាញយកកញ្ចប់កូដមកប្រើ (ឧ. <code class="ic">npm install express</code>)។</li>
+                <li><code class="ic">npm install -D nodemon</code> <strong>(Dev Dependency)៖</strong>
+                    ដំឡើងឧបករណ៍ជំនួយពេលសរសេរកូដ (Restart Server ស្វ័យប្រវត្តិពេលកែកូដ)។</li>
+                <li><code class="ic">node_modules</code> <strong>(ថតផ្ទុកកូដ)៖</strong> ជា Folder
+                    ដែលផ្ទុកកញ្ចប់កូដទាំងអស់ដែលបានដំឡើង (មិនត្រូវ Upload ទៅ GitHub ទេ)។</li>
+            </ul>
+
+            <p class="step-heading">3. ប្រើពេលណា (When to Use):</p>
+            <p class="step-text">ប្រើនៅពេលចាប់ផ្តើមបង្កើតគម្រោង Backend ថ្មីដំបូង ឬត្រូវការទាញយក Libraries ជំនួយមកប្រើ
+                (ដូចជា Express, Mongoose, Dotenv)។</p>
+
+            <p class="step-heading">4. Syntax (ទម្រង់ឯកសារ package.json):</p>
+            <div class="code-box">
+                <pre>{
+  <span class="t-prop">"name"</span>: <span class="t-str">"my-backend-api"</span>,
+  <span class="t-prop">"version"</span>: <span class="t-str">"1.0.0"</span>,
+  <span class="t-prop">"main"</span>: <span class="t-str">"server.js"</span>,
+  <span class="t-prop">"scripts"</span>: {
+    <span class="t-prop">"start"</span>: <span class="t-str">"node server.js"</span>,
+    <span class="t-prop">"dev"</span>: <span class="t-str">"nodemon server.js"</span>
+  },
+  <span class="t-prop">"dependencies"</span>: { <span class="t-prop">"express"</span>: <span class="t-str">"^4.21.1"</span> }
+}</pre>
+            </div>
+
+            <p class="step-heading">5. Output (លទ្ធផលនៅលើ Terminal):</p>
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="browser-dots"><span class="browser-dot dot-red"></span><span
+                            class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+                    <div class="terminal-title">Terminal — bash</div>
+                </div>
+                <div class="terminal-body">
+                    <div>$ npm init -y</div>
+                    <div class="t-out">Wrote to /my-backend-api/package.json</div>
+                    <div>$ npm install express</div>
+                    <div class="t-out">added 65 packages in 2s</div>
+                </div>
+            </div>
+
+            <div class="summary-box">
+                <strong>6. Summary (សង្ខេបមេរៀន)៖</strong> រាល់គម្រោង Node.js ត្រូវចាប់ផ្តើមដោយ <code
+                    class="ic">npm init -y</code> ដើម្បីបង្កើត <code class="ic">package.json</code> និងប្រើ <code
+                    class="ic">npm run dev</code> ដើម្បីដំណើរការគម្រោងជាមួយ Nodemon។
+            </div>
+        </div>
+
+        <footer class="page-foot">
+            <span class="author-credit">រៀបចំដោយ៖ លាត ប្រុស</span>
+            <span class="page-num">ទំព័រ 4</span>
+        </footer>
+    </section>
+
+    <!-- CHAPTER 3 -->
+    <section class="page" id="chapter-3">
+        <div class="page-body">
+            <header class="page-top-header">
+                <a href="#toc">Node.js &amp; Express.js</a>
+                <span>3. Node.js Module System</span>
+            </header>
+
+            <h2 class="ch-title">3. ប្រព័ន្ធ Modules ក្នុង Node.js (CommonJS vs ES Modules)</h2>
+
+            <p class="step-heading">1. Definition (និយមន័យ):</p>
+            <p class="step-text"><strong>Module</strong> គឺជាការបំបែកកូដ JavaScript ជាឯកសារតូចៗដាច់ដោយឡែកពីគ្នាតាមមុខងារ
+                ដើម្បីងាយស្រួលគ្រប់គ្រង កែប្រែ និងយកទៅប្រើឡើងវិញនៅក្នុងឯកសារផ្សេងទៀត។</p>
+
+            <p class="step-heading">2. មុខងារសំខាន់ៗ:</p>
+            <ul class="step-list">
+                <li><strong>CommonJS (ទម្រង់ដើមរបស់ Node.js)៖</strong> ប្រើ <code class="ic">module.exports</code>
+                    ដើម្បីបញ្ចេញកូដ និង <code class="ic">require()</code> ដើម្បីទាញយកមកប្រើ។</li>
+                <li><strong>ES Modules (ទម្រង់ទំនើប ES6)៖</strong> ប្រើ <code class="ic">export</code> និង <code
+                        class="ic">import</code> (ត្រូវបន្ថែម <code class="ic">"type": "module"</code> ក្នុង <code
+                        class="ic">package.json</code>)។</li>
+                <li><strong>អត្ថប្រយោជន៍៖</strong> ជៀសវាងការសរសេរកូដរាប់ពាន់បន្ទាត់គរក្នុងឯកសារតែមួយ។</li>
+            </ul>
+
+            <p class="step-heading">3. ប្រើពេលណា (When to Use):</p>
+            <p class="step-text">ប្រើនៅពេលគម្រោងមាន Functions ច្រើន ហើយយើងចង់បំបែកកូដជាផ្នែកៗ (ដូចជា Database Config,
+                Routes, Controllers) ដើម្បីឱ្យមានរបៀបរៀបរយ។</p>
+
+            <p class="step-heading">4. Syntax (ទម្រង់កូដ CommonJS):</p>
+            <div class="code-box">
+                <pre><span class="t-com">// ១. ឯកសារ math.js (បញ្ចេញ Function)</span>
+<span class="t-kw">const</span> <span class="t-fn">add</span> = (a, b) => a + b;
+<span class="t-kw">const</span> <span class="t-fn">multiply</span> = (a, b) => a * b;
+module.exports = { add, multiply };
+
+<span class="t-com">// ២. ឯកសារ app.js (ទាញយកមកប្រើ)</span>
+<span class="t-kw">const</span> { add, multiply } = <span class="t-fn">require</span>(<span class="t-str">'./math'</span>);
+console.<span class="t-fn">log</span>(<span class="t-str">"ផលបូក៖"</span>, <span class="t-fn">add</span>(<span class="t-num">10</span>, <span class="t-num">5</span>), <span class="t-str">"| ផលគុណ៖"</span>, <span class="t-fn">multiply</span>(<span class="t-num">10</span>, <span class="t-num">5</span>));</pre>
+            </div>
+
+            <p class="step-heading">5. Output (លទ្ធផលនៅលើ Terminal):</p>
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="browser-dots"><span class="browser-dot dot-red"></span><span
+                            class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+                    <div class="terminal-title">Terminal — bash</div>
+                </div>
+                <div class="terminal-body">
+                    <div>$ node app.js</div>
+                    <div class="t-out">ផលបូក៖ 15 | ផលគុណ៖ 50</div>
+                </div>
+            </div>
+
+            <div class="summary-box">
+                <strong>6. Summary (សង្ខេបមេរៀន)៖</strong> ប្រើ <code class="ic">module.exports</code> និង <code
+                    class="ic">require('./file')</code> សម្រាប់ CommonJS ឬប្រើ <code class="ic">export</code> និង <code
+                    class="ic">import</code> សម្រាប់ ES Modules។
+            </div>
+        </div>
+
+        <footer class="page-foot">
+            <span class="author-credit">រៀបចំដោយ៖ លាត ប្រុស</span>
+            <span class="page-num">ទំព័រ 5</span>
+        </footer>
+    </section>
+
+    <!-- CHAPTER 4 -->
+    <section class="page" id="chapter-4">
+        <div class="page-body">
+            <header class="page-top-header">
+                <a href="#toc">Node.js &amp; Express.js</a>
+                <span>4. Built-in Modules (fs &amp; path)</span>
+            </header>
+
+            <h2 class="ch-title">4. ការប្រើប្រាស់ Built-in Modules (fs &amp; path)</h2>
+
+            <p class="step-heading">1. Definition (និយមន័យ):</p>
+            <p class="step-text"><strong>Built-in Modules</strong> គឺជា Modules ដែល Node.js
+                បង្កើតមកឱ្យប្រើស្រាប់ដោយមិនចាំបាច់ដំឡើងតាម NPM ឡើយ ដូចជា <code class="ic">fs</code> (គ្រប់គ្រងឯកសារ) និង
+                <code class="ic">path</code> (គ្រប់គ្រងទីតាំង Folder)។
+            </p>
+
+            <p class="step-heading">2. មុខងារសំខាន់ៗ:</p>
+            <ul class="step-list">
+                <li><code class="ic">fs.writeFileSync()</code> <strong>(បង្កើត/សរសេរ File)៖</strong> បង្កើតឯកសារថ្មី
+                    ឬសរសេរទិន្នន័យចូលក្នុងឯកសារ។</li>
+                <li><code class="ic">fs.readFileSync()</code> <strong>(អានទិន្នន័យ File)៖</strong>
+                    អានអត្ថបទពីក្នុងឯកសារមកបង្ហាញ (ប្រើ <code class="ic">'utf8'</code> ដើម្បីអានអក្សរខ្មែរ/អង់គ្លេស)។
+                </li>
+                <li><code class="ic">path.join()</code> <strong>(តភ្ជាប់ទីតាំង File)៖</strong> តភ្ជាប់ឈ្មោះ Folder និង
+                    File ឱ្យត្រូវតាមប្រព័ន្ធប្រតិបត្តិការ (Windows ឬ macOS)។</li>
+                <li><code class="ic">__dirname</code> <strong>(ទីតាំងបច្ចុប្បន្ន)៖</strong> ជាអថេរពិសេសប្រាប់ពីទីតាំង
+                    Folder ដែលកូដកំពុងដំណើរការ។</li>
+            </ul>
+
+            <p class="step-heading">3. ប្រើពេលណា (When to Use):</p>
+            <p class="step-text">ប្រើនៅពេលត្រូវការបង្កើត ឬអានឯកសារ (Logs, JSON, Text) នៅលើ Server ឬកំណត់ទីតាំង Folder
+                សម្រាប់រក្សាទុករូបភាពដែលអ្នកប្រើប្រាស់ Upload។</p>
+
+            <p class="step-heading">4. Syntax (ទម្រង់កូដ):</p>
+            <div class="code-box">
+                <pre><span class="t-kw">const</span> fs = <span class="t-fn">require</span>(<span class="t-str">'fs'</span>);
+<span class="t-kw">const</span> path = <span class="t-fn">require</span>(<span class="t-str">'path'</span>);
+
+<span class="t-kw">const</span> filePath = path.<span class="t-fn">join</span>(__dirname, <span class="t-str">'note.txt'</span>);
+fs.<span class="t-fn">writeFileSync</span>(filePath, <span class="t-str">'មេរៀន Node.js ងាយស្រួលរៀន!'</span>);
+<span class="t-kw">const</span> content = fs.<span class="t-fn">readFileSync</span>(filePath, <span class="t-str">'utf8'</span>);
+console.<span class="t-fn">log</span>(<span class="t-str">"ខ្លឹមសារក្នុងឯកសារ៖"</span>, content);</pre>
+            </div>
+
+            <p class="step-heading">5. Output (លទ្ធផលនៅលើ Terminal):</p>
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="browser-dots"><span class="browser-dot dot-red"></span><span
+                            class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+                    <div class="terminal-title">Terminal — bash</div>
+                </div>
+                <div class="terminal-body">
+                    <div>$ node file-demo.js</div>
+                    <div class="t-out">ខ្លឹមសារក្នុងឯកសារ៖ មេរៀន Node.js ងាយស្រួលរៀន!</div>
+                </div>
+            </div>
+
+            <div class="summary-box">
+                <strong>6. Summary (សង្ខេបមេរៀន)៖</strong> ប្រើ <code class="ic">fs</code> សម្រាប់អាន ឬបង្កើតឯកសារលើ
+                Server និងប្រើ <code class="ic">path.join(__dirname, ...)</code> ដើម្បីកំណត់ផ្លូវឯកសារឱ្យបានត្រឹមត្រូវ។
+            </div>
+        </div>
+
+        <footer class="page-foot">
+            <span class="author-credit">រៀបចំដោយ៖ លាត ប្រុស</span>
+            <span class="page-num">ទំព័រ 6</span>
+        </footer>
+    </section>
+
+    <!-- CHAPTER 5 -->
+    <section class="page" id="chapter-5">
+        <div class="page-body">
+            <header class="page-top-header">
+                <a href="#toc">Node.js &amp; Express.js</a>
+                <span>5. Built-in HTTP Server</span>
+            </header>
+
+            <h2 class="ch-title">5. ការបង្កើត Web Server ដំបូងដោយប្រើ HTTP Module</h2>
+
+            <p class="step-heading">1. Definition (និយមន័យ):</p>
+            <p class="step-text"><strong>HTTP Module</strong> គឺជា Built-in Module របស់ Node.js ដែលប្រើសម្រាប់បង្កើត Web
+                Server ដើម្បីទទួលសំណើ (<code class="ic">Request</code>) ពីអ្នកប្រើប្រាស់ និងបញ្ជូនទិន្នន័យត្រឡប់ទៅវិញ
+                (<code class="ic">Response</code>)។</p>
+
+            <p class="step-heading">2. មុខងារសំខាន់ៗ:</p>
+            <ul class="step-list">
+                <li><code class="ic">http.createServer()</code> <strong>(បង្កើត Server)៖</strong> បង្កើតកម្មវិធី Server
+                    ដែលមាន Parameter ពីរគឺ <code class="ic">req</code> (Request) និង <code class="ic">res</code>
+                    (Response)។</li>
+                <li><code class="ic">res.writeHead(200, ...)</code> <strong>(កំណត់ Header)៖</strong> កំណត់លេខកូដស្ថានភាព
+                    (200 = ជោគជ័យ) និងប្រភេទទិន្នន័យ (Text, HTML ឬ JSON)។</li>
+                <li><code class="ic">res.end()</code> <strong>(បញ្ចប់ការឆ្លើយតប)៖</strong> បញ្ជូនទិន្នន័យចុងក្រោយទៅកាន់
+                    Browser និងបិទការតភ្ជាប់នៃសំណើនោះ។</li>
+                <li><code class="ic">server.listen(3000)</code> <strong>(បើកដំណើរការ Port)៖</strong> កំណត់លេខ Port (ឧ.
+                    <code class="ic">3000</code>) ដើម្បីឱ្យ Server រង់ចាំទទួលសំណើ។
+                </li>
+            </ul>
+
+            <p class="step-heading">3. Syntax (ទម្រង់កូដ):</p>
+            <div class="code-box">
+                <pre><span class="t-kw">const</span> http = <span class="t-fn">require</span>(<span class="t-str">'http'</span>);
+
+<span class="t-kw">const</span> server = http.<span class="t-fn">createServer</span>((req, res) => {
+  res.<span class="t-fn">writeHead</span>(<span class="t-num">200</span>, { <span class="t-str">'Content-Type'</span>: <span class="t-str">'application/json; charset=utf-8'</span> });
+  res.<span class="t-fn">end</span>(JSON.<span class="t-fn">stringify</span>({ message: <span class="t-str">"សួស្តីពី Node.js HTTP Server!"</span> }));
+});
+
+server.<span class="t-fn">listen</span>(<span class="t-num">3000</span>, () => {
+  console.<span class="t-fn">log</span>(<span class="t-str">"Server កំពុងដំណើរការនៅ http://localhost:3000"</span>);
+});</pre>
+            </div>
+
+            <p class="step-heading">4. Output (លទ្ធផលនៅលើ Terminal &amp; Browser):</p>
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="browser-dots"><span class="browser-dot dot-red"></span><span
+                            class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+                    <div class="terminal-title">Terminal &amp; Response</div>
+                </div>
+                <div class="terminal-body">
+                    <div>$ node server.js</div>
+                    <div class="t-out">Server កំពុងដំណើរការនៅ http://localhost:3000</div>
+                    <div class="t-json">Response: {"message":"សួស្តីពី Node.js HTTP Server!"}</div>
+                </div>
+            </div>
+
+            <div class="summary-box">
+                <strong>5. Summary (សង្ខេបមេរៀន)៖</strong> ការប្រើ <code class="ic">http</code> សុទ្ធអាចបង្កើត Server
+                បាន ប៉ុន្តែពេលមាន Routes ច្រើនវានឹងស្មុគស្មាញ ទើបគេប្រើ <strong>Express.js</strong> មកជំនួស។
+            </div>
+        </div>
+
+        <footer class="page-foot">
+            <span class="author-credit">រៀបចំដោយ៖ លាត ប្រុស</span>
+            <span class="page-num">ទំព័រ 7</span>
+        </footer>
+    </section>
+
+    <!-- CHAPTER 6 -->
+    <section class="page" id="chapter-6">
+        <div class="page-body">
+            <header class="page-top-header">
+                <a href="#toc">Node.js &amp; Express.js</a>
+                <span>6. Introduction to Express.js</span>
+            </header>
+
+            <h2 class="ch-title">6. សេចក្តីផ្តើមអំពី Express.js &amp; ការរៀបចំ Structure គម្រោង</h2>
+
+            <p class="step-heading">1. Definition (និយមន័យ):</p>
+            <p class="step-text"><strong>Express.js</strong> គឺជា Web Application Framework ដ៏ពេញនិយមបំផុតរបស់ Node.js
+                ដែលជួយឱ្យការបង្កើត Server, ការគ្រប់គ្រង Routing និងការសរសេរ REST API មានភាពងាយស្រួល ខ្លី
+                និងមានរបៀបរៀបរយ។</p>
+
+            <p class="step-heading">2. មុខងារសំខាន់ៗ:</p>
+            <ul class="step-list">
+                <li><code class="ic">const app = express()</code> <strong>(បង្កើតកម្មវិធី Express)៖</strong>
+                    ចាប់ផ្តើមបង្កើត Instance របស់ Express ដើម្បីកំណត់ Routes និង Middleware។</li>
+                <li><code class="ic">res.json()</code> <strong>(បញ្ជូនទិន្នន័យ JSON)៖</strong> បំប្លែង Object ឬ Array
+                    ទៅជាទម្រង់ JSON ដោយស្វ័យប្រវត្តិ (ងាយជាង <code class="ic">http</code> សុទ្ធ)។</li>
+                <li><strong>រចនាសម្ព័ន្ធ Folder ស្តង់ដារ៖</strong> បែងចែកជា <code class="ic">routes/</code>, <code
+                        class="ic">controllers/</code>, <code class="ic">models/</code>, <code class="ic">config/</code>
+                    និង <code class="ic">server.js</code>។</li>
+            </ul>
+
+            <p class="step-heading">3. ប្រើពេលណា (When to Use):</p>
+            <p class="step-text">ប្រើនៅពេលបង្កើត Backend REST API សម្រាប់គេហទំព័រ (React, Next.js) ឬ Mobile App
+                ជំនួសឱ្យការប្រើ <code class="ic">http</code> module សុទ្ធរបស់ Node.js។</p>
+
+            <p class="step-heading">4. Syntax (ទម្រង់កូដបង្កើត Server ជាមួយ Express.js):</p>
+            <div class="code-box">
+                <pre><span class="t-kw">const</span> express = <span class="t-fn">require</span>(<span class="t-str">'express'</span>);
+<span class="t-kw">const</span> app = <span class="t-fn">express</span>();
+<span class="t-kw">const</span> PORT = <span class="t-num">5000</span>;
+
+app.<span class="t-fn">get</span>(<span class="t-str">'/'</span>, (req, res) => {
+  res.<span class="t-fn">json</span>({ status: <span class="t-str">"success"</span>, message: <span class="t-str">"ស្វាគមន៍មកកាន់ Express API!"</span> });
+});
+
+app.<span class="t-fn">listen</span>(PORT, () => console.<span class="t-fn">log</span>(<span class="t-str">`Server running on port ${PORT}`</span>));</pre>
+            </div>
+
+            <p class="step-heading">5. Output (លទ្ធផលនៅលើ Terminal &amp; Postman):</p>
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="browser-dots"><span class="browser-dot dot-red"></span><span
+                            class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+                    <div class="terminal-title">GET http://localhost:5000/</div>
+                </div>
+                <div class="terminal-body">
+                    <div class="t-out">Server running on port 5000</div>
+                    <div class="t-json">{"status": "success", "message": "ស្វាគមន៍មកកាន់ Express API!"}</div>
+                </div>
+            </div>
+
+            <div class="summary-box">
+                <strong>6. Summary (សង្ខេបមេរៀន)៖</strong> Express.js កាត់បន្ថយកូដស្មុគស្មាញរបស់ Node.js ដោយផ្តល់នូវ
+                <code class="ic">app.get()</code> និង <code class="ic">res.json()</code> សម្រាប់បង្កើត API បានយ៉ាងរហ័ស។
+            </div>
+        </div>
+
+        <footer class="page-foot">
+            <span class="author-credit">រៀបចំដោយ៖ លាត ប្រុស</span>
+            <span class="page-num">ទំព័រ 8</span>
+        </footer>
+    </section>
+
+    <!-- CHAPTER 7 -->
+    <section class="page" id="chapter-7">
+        <div class="page-body">
+            <header class="page-top-header">
+                <a href="#toc">Node.js &amp; Express.js</a>
+                <span>7. Routing &amp; HTTP Methods</span>
+            </header>
+
+            <h2 class="ch-title">7. ការគ្រប់គ្រង Routing &amp; HTTP Methods</h2>
+
+            <p class="step-heading">1. Definition (និយមន័យ):</p>
+            <p class="step-text"><strong>Routing</strong> គឺជាការកំណត់ផ្លូវ (URL Endpoints) និងវិធីសាស្ត្រស្នើសុំ (HTTP
+                Methods) ដើម្បីឱ្យ Server ដឹងថាត្រូវឆ្លើយតបបែបណានៅពេលអ្នកប្រើប្រាស់ចូលទៅកាន់ URL ណាមួយ។</p>
+
+            <p class="step-heading">2. មុខងារសំខាន់ៗ (HTTP Methods ទាំង ៤ របស់ REST API):</p>
+            <ul class="step-list">
+                <li><code class="ic">app.get()</code> <strong>(Read - ទាញយកទិន្នន័យ)៖</strong> ប្រើសម្រាប់អាន
+                    ឬទាញបញ្ជីទិន្នន័យពី Server។</li>
+                <li><code class="ic">app.post()</code> <strong>(Create - បង្កើតទិន្នន័យថ្មី)៖</strong>
+                    ប្រើសម្រាប់បញ្ជូនទិន្នន័យថ្មីទៅរក្សាទុកក្នុង Server។</li>
+                <li><code class="ic">app.put()</code> <strong>(Update - កែប្រែទិន្នន័យ)៖</strong>
+                    ប្រើសម្រាប់កែប្រែព័ត៌មានដែលមានស្រាប់តាមរយៈ ID។</li>
+                <li><code class="ic">app.delete()</code> <strong>(Delete - លុបទិន្នន័យ)៖</strong>
+                    ប្រើសម្រាប់លុបទិន្នន័យចេញពីប្រព័ន្ធ។</li>
+            </ul>
+
+            <p class="step-heading">3. ប្រើពេលណា (When to Use):</p>
+            <p class="step-text">ប្រើនៅពេលបង្កើត API Endpoints សម្រាប់ឱ្យ Frontend ធ្វើសកម្មភាពផ្សេងៗ ដូចជា
+                ទាញបញ្ជីទំនិញ (<code class="ic">GET</code>), បន្ថែមទំនិញ (<code class="ic">POST</code>), កែតម្លៃ (<code
+                    class="ic">PUT</code>) ឬលុបទំនិញ (<code class="ic">DELETE</code>)។</p>
+
+            <p class="step-heading">4. Syntax (ទម្រង់កូដ):</p>
+            <div class="code-box">
+                <pre>app.<span class="t-fn">get</span>(<span class="t-str">'/api/courses'</span>, (req, res) => {
+  res.<span class="t-fn">json</span>([{ id: <span class="t-num">1</span>, title: <span class="t-str">"HTML &amp; CSS"</span> }, { id: <span class="t-num">2</span>, title: <span class="t-str">"Node.js"</span> }]);
+});
+app.<span class="t-fn">post</span>(<span class="t-str">'/api/courses'</span>, (req, res) => {
+  res.<span class="t-fn">status</span>(<span class="t-num">201</span>).<span class="t-fn">json</span>({ message: <span class="t-str">"បង្កើតមុខវិជ្ជាថ្មីបានជោគជ័យ!"</span> });
+});
+app.<span class="t-fn">put</span>(<span class="t-str">'/api/courses/:id'</span>, (req, res) => res.<span class="t-fn">json</span>({ message: <span class="t-str">"កែប្រែជោគជ័យ!"</span> }));
+app.<span class="t-fn">delete</span>(<span class="t-str">'/api/courses/:id'</span>, (req, res) => res.<span class="t-fn">json</span>({ message: <span class="t-str">"លុបជោគជ័យ!"</span> }));</pre>
+            </div>
+
+            <p class="step-heading">5. Output (លទ្ធផលនៅលើ Postman):</p>
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="browser-dots"><span class="browser-dot dot-red"></span><span
+                            class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+                    <div class="terminal-title">POST http://localhost:5000/api/courses — 201 Created</div>
+                </div>
+                <div class="terminal-body">
+                    <div class="t-json">{"message": "បង្កើតមុខវិជ្ជាថ្មីបានជោគជ័យ!"}</div>
+                </div>
+            </div>
+
+            <div class="summary-box">
+                <strong>6. Summary (សង្ខេបមេរៀន)៖</strong> ការរចនា REST API ត្រូវប្រើ Method ឱ្យត្រូវតាមមុខងារ៖ <code
+                    class="ic">GET</code> (អាន), <code class="ic">POST</code> (បង្កើត), <code class="ic">PUT</code>
+                (កែប្រែ) និង <code class="ic">DELETE</code> (លុប)។
+            </div>
+        </div>
+
+        <footer class="page-foot">
+            <span class="author-credit">រៀបចំដោយ៖ លាត ប្រុស</span>
+            <span class="page-num">ទំព័រ 9</span>
+        </footer>
+    </section>
+
+    <!-- CHAPTER 8 -->
+    <section class="page" id="chapter-8">
+        <div class="page-body">
+            <header class="page-top-header">
+                <a href="#toc">Node.js &amp; Express.js</a>
+                <span>8. Request Data (Params, Query, Body)</span>
+            </header>
+
+            <h2 class="ch-title">8. ការចាប់ទិន្នន័យពី Request (req.params, req.query, req.body)</h2>
+
+            <p class="step-heading">1. Definition (និយមន័យ):</p>
+            <p class="step-text">នៅពេល Frontend ឬ Postman ផ្ញើសំណើមកកាន់ Server ទិន្នន័យទាំងអស់ត្រូវបានផ្ទុកនៅក្នុង
+                Object <code class="ic">req</code> (Request) ដែលយើងអាចទាញយកតាម ៣ របៀបសំខាន់ៗ។</p>
+
+            <p class="step-heading">2. មុខងារសំខាន់ៗ:</p>
+            <ul class="step-list">
+                <li><code class="ic">req.params</code> <strong>(Route Parameters)៖</strong> ចាប់តម្លៃដែលភ្ជាប់ក្នុងផ្លូវ
+                    URL ផ្ទាល់ (ឧ. <code class="ic">/users/:id</code> ➔ <code class="ic">req.params.id</code>)។</li>
+                <li><code class="ic">req.query</code> <strong>(Query Strings)៖</strong> ចាប់តម្លៃស្វែងរកនៅខាងក្រោយសញ្ញា
+                    <code class="ic">?</code> (ឧ. <code class="ic">/search?name=node</code> ➔ <code
+                        class="ic">req.query.name</code>)។
+                </li>
+                <li><code class="ic">req.body</code> <strong>(Request Body)៖</strong> ចាប់ទិន្នន័យ JSON ដែលផ្ញើតាម <code
+                        class="ic">POST</code> ឬ <code class="ic">PUT</code> (ត្រូវបើក <code
+                        class="ic">app.use(express.json())</code> ជាមុន)។</li>
+            </ul>
+
+            <p class="step-heading">3. ប្រើពេលណា (When to Use):</p>
+            <p class="step-text">ប្រើ <code class="ic">params</code> ពេលចង់មើល ឬលុបទិន្នន័យតាម ID ជាក់លាក់, ប្រើ <code
+                    class="ic">query</code> ពេលធ្វើមុខងារ Search/Filter និងប្រើ <code class="ic">body</code>
+                ពេលទទួលទិន្នន័យចុះឈ្មោះ ឬបង្កើតថ្មី។</p>
+
+            <p class="step-heading">4. Syntax (ទម្រង់កូដ):</p>
+            <div class="code-box">
+                <pre>app.<span class="t-fn">use</span>(express.<span class="t-fn">json</span>()); <span class="t-com">// ចាំបាច់សម្រាប់អាន req.body</span>
+
+app.<span class="t-fn">get</span>(<span class="t-str">'/api/users/:id'</span>, (req, res) => {
+  res.<span class="t-fn">json</span>({ userId: req.params.id, keyword: req.query.role });
+});
+
+app.<span class="t-fn">post</span>(<span class="t-str">'/api/users'</span>, (req, res) => {
+  <span class="t-kw">const</span> { name, email } = req.body;
+  res.<span class="t-fn">json</span>({ received: { name, email } });
+});</pre>
+            </div>
+
+            <p class="step-heading">5. Output (លទ្ធផលនៅលើ Postman):</p>
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="browser-dots"><span class="browser-dot dot-red"></span><span
+                            class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+                    <div class="terminal-title">GET http://localhost:5000/api/users/101?role=admin</div>
+                </div>
+                <div class="terminal-body">
+                    <div class="t-json">{"userId": "101", "keyword": "admin"}</div>
+                </div>
+            </div>
+
+            <div class="summary-box">
+                <strong>6. Summary (សង្ខេបមេរៀន)៖</strong> ប្រើ <code class="ic">req.params</code> សម្រាប់ចាប់ ID, ប្រើ
+                <code class="ic">req.query</code> សម្រាប់ Filter/Search និងប្រើ <code class="ic">req.body</code>
+                សម្រាប់ទទួលទិន្នន័យ Form ឬ JSON។
+            </div>
+        </div>
+
+        <footer class="page-foot">
+            <span class="author-credit">រៀបចំដោយ៖ លាត ប្រុស</span>
+            <span class="page-num">ទំព័រ 10</span>
+        </footer>
+    </section>
+
+    <!-- CHAPTER 9 -->
+    <section class="page" id="chapter-9">
+        <div class="page-body">
+            <header class="page-top-header">
+                <a href="#toc">Node.js &amp; Express.js</a>
+                <span>9. Middleware in Express.js</span>
+            </header>
+
+            <h2 class="ch-title">9. ការប្រើប្រាស់ Middleware (express.json, Custom, CORS)</h2>
+
+            <p class="step-heading">1. Definition (និយមន័យ):</p>
+            <p class="step-text"><strong>Middleware</strong> គឺជា Function កណ្តាលដែលដំណើរការនៅចន្លោះពេល Server ទទួលបាន
+                <code class="ic">Request</code> និងមុនពេលបញ្ជូន <code class="ic">Response</code> ត្រឡប់ទៅវិញ
+                (ដូចជាអ្នកត្រួតពិនិត្យសំបុត្រមុនចូលរោងកុន)។
+            </p>
+
+            <p class="step-heading">2. មុខងារសំខាន់ៗ:</p>
+            <ul class="step-list">
+                <li><code class="ic">app.use(express.json())</code> <strong>(Built-in Middleware)៖</strong>
+                    បំប្លែងទិន្នន័យ JSON ដែលផ្ញើមកឱ្យក្លាយជា JavaScript Object។</li>
+                <li><code class="ic">app.use(cors())</code> <strong>(Third-party Middleware)៖</strong> អនុញ្ញាតឱ្យ
+                    Frontend (ដូចជា React នៅ Port 3000) អាចហៅ API ពី Backend (Port 5000) បាន។</li>
+                <li><code class="ic">next()</code> <strong>(បន្តដំណើរការ)៖</strong> ជា Function សម្រាប់ប្រាប់ Express
+                    ឱ្យបន្តទៅកាន់ Route ឬ Middleware បន្ទាប់ទៀត។</li>
+            </ul>
+
+            <p class="step-heading">3. ប្រើពេលណា (When to Use):</p>
+            <p class="step-text">ប្រើនៅពេលត្រូវការបើកសិទ្ធិ CORS ឱ្យ Frontend ភ្ជាប់មក, អាន JSON Body, ពិនិត្យ Token
+                សុវត្ថិភាព (Authentication) ឬកត់ត្រាប្រវត្តិ Requests។</p>
+
+            <p class="step-heading">4. Syntax (ទម្រង់កូដបង្កើត Custom Middleware):</p>
+            <div class="code-box">
+                <pre><span class="t-kw">const</span> cors = <span class="t-fn">require</span>(<span class="t-str">'cors'</span>);
+app.<span class="t-fn">use</span>(cors());
+app.<span class="t-fn">use</span>(express.<span class="t-fn">json</span>());
+
+<span class="t-kw">const</span> <span class="t-fn">logger</span> = (req, res, next) => {
+  console.<span class="t-fn">log</span>(<span class="t-str">`[${new Date().toLocaleTimeString()}] ${req.method} ${req.url}`</span>);
+  <span class="t-fn">next</span>(); <span class="t-com">// បើភ្លេចហៅ next() នោះ Request នឹងគាំងត្រឹមនេះ!</span>
+};
+app.<span class="t-fn">use</span>(logger);</pre>
+            </div>
+
+            <p class="step-heading">5. Output (លទ្ធផលនៅលើ Terminal):</p>
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="browser-dots"><span class="browser-dot dot-red"></span><span
+                            class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+                    <div class="terminal-title">Terminal — Middleware Log</div>
+                </div>
+                <div class="terminal-body">
+                    <div class="t-out">[10:15:30 AM] GET /api/courses</div>
+                    <div class="t-out">[10:15:42 AM] POST /api/users</div>
+                </div>
+            </div>
+
+            <div class="summary-box">
+                <strong>6. Summary (សង្ខេបមេរៀន)៖</strong> Middleware ប្រើតាមរយៈ <code class="ic">app.use()</code>
+                សម្រាប់ពិនិត្យសិទ្ធិ (Auth), អនុញ្ញាត <code class="ic">cors()</code> និងអាន JSON ហើយត្រូវហៅ <code
+                    class="ic">next()</code> ជានិច្ច។
+            </div>
+        </div>
+
+        <footer class="page-foot">
+            <span class="author-credit">រៀបចំដោយ៖ លាត ប្រុស</span>
+            <span class="page-num">ទំព័រ 11</span>
+        </footer>
+    </section>
+
+    <!-- CHAPTER 10 -->
+    <section class="page" id="chapter-10">
+        <div class="page-body">
+            <header class="page-top-header">
+                <a href="#toc">Node.js &amp; Express.js</a>
+                <span>10. MVC Pattern (Routes &amp; Controllers)</span>
+            </header>
+
+            <h2 class="ch-title">10. ការរៀបចំកូដតាមគំរូ MVC (Routes &amp; Controllers)</h2>
+
+            <p class="step-heading">1. Definition (និយមន័យ):</p>
+            <p class="step-text"><strong>MVC (Model - View - Controller)</strong> គឺជាគំរូរៀបចំរចនាសម្ព័ន្ធកូដ Backend
+                ដោយបំបែកផ្នែកកំណត់ផ្លូវ (<code class="ic">Routes</code>) ផ្នែកដោះស្រាយតក្កវិជ្ជា (<code
+                    class="ic">Controllers</code>) និងផ្នែកទិន្នន័យ (<code class="ic">Models</code>) ដាច់ពីគ្នា។</p>
+
+            <p class="step-heading">2. មុខងារសំខាន់ៗ:</p>
+            <ul class="step-list">
+                <li><code class="ic">express.Router()</code> <strong>(បង្កើត Route ដាច់ដោយឡែក)៖</strong> ជួយបំបែកផ្លូវ
+                    API តាមក្រុមមុខងារ (ឧ. <code class="ic">userRoutes.js</code>, <code
+                        class="ic">productRoutes.js</code>)។</li>
+                <li><strong>Controllers៖</strong> ផ្ទុក Functions សម្រាប់ដំណើរការកូដ និងទាញទិន្នន័យពី Database
+                    ដើម្បីកុំឱ្យឯកសារ Routes វែងពេក។</li>
+                <li><code class="ic">app.use('/api/products', productRoutes)</code> <strong>(ភ្ជាប់ Route ចូល
+                        Server)៖</strong> កំណត់ Prefix URL រួមសម្រាប់ Route នោះ។</li>
+            </ul>
+
+            <p class="step-heading">3. ប្រើពេលណា (When to Use):</p>
+            <p class="step-text">ប្រើនៅពេលគម្រោង API ចាប់ផ្តើមមាន Endpoints ច្រើន (ដូចជា Users, Products, Orders)
+                ដើម្បីកុំឱ្យកូដទាំងអស់គរនៅក្នុង <code class="ic">server.js</code> តែមួយ។</p>
+
+            <p class="step-heading">4. Syntax (ទម្រង់កូដបំបែក Controller និង Route):</p>
+            <div class="code-box">
+                <pre><span class="t-com">// ១. controllers/productController.js</span>
+<span class="t-kw">const</span> <span class="t-fn">getProducts</span> = (req, res) => res.<span class="t-fn">json</span>([{ id: <span class="t-num">1</span>, name: <span class="t-str">"Laptop Dell"</span> }]);
+module.exports = { getProducts };
+
+<span class="t-com">// ២. routes/productRoutes.js</span>
+<span class="t-kw">const</span> router = <span class="t-fn">require</span>(<span class="t-str">'express'</span>).<span class="t-fn">Router</span>();
+<span class="t-kw">const</span> { getProducts } = <span class="t-fn">require</span>(<span class="t-str">'../controllers/productController'</span>);
+router.<span class="t-fn">get</span>(<span class="t-str">'/'</span>, getProducts);
+module.exports = router;</pre>
+            </div>
+
+            <p class="step-heading">5. Output (ការភ្ជាប់ក្នុង server.js និងលទ្ធផល):</p>
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="browser-dots"><span class="browser-dot dot-red"></span><span
+                            class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+                    <div class="terminal-title">GET http://localhost:5000/api/products</div>
+                </div>
+                <div class="terminal-body">
+                    <div class="t-out">// server.js: app.use('/api/products', require('./routes/productRoutes'));</div>
+                    <div class="t-json">[{"id": 1, "name": "Laptop Dell"}]</div>
+                </div>
+            </div>
+
+            <div class="summary-box">
+                <strong>6. Summary (សង្ខេបមេរៀន)៖</strong> ការប្រើ <code class="ic">express.Router()</code> និងបំបែក
+                <code class="ic">Controllers</code> ធ្វើឱ្យគម្រោងធំៗងាយស្រួលថែទាំ និងធ្វើការងារជាក្រុមបានរលូន។
+            </div>
+        </div>
+
+        <footer class="page-foot">
+            <span class="author-credit">រៀបចំដោយ៖ លាត ប្រុស</span>
+            <span class="page-num">ទំព័រ 12</span>
+        </footer>
+    </section>
+
+    <!-- CHAPTER 11 -->
+    <section class="page" id="chapter-11">
+        <div class="page-body">
+            <header class="page-top-header">
+                <a href="#toc">Node.js &amp; Express.js</a>
+                <span>11. Environment Variables (.env)</span>
+            </header>
+
+            <h2 class="ch-title">11. ការគ្រប់គ្រងអថេរសម្ងាត់ជាមួយ Environment Variables (.env)</h2>
+
+            <p class="step-heading">1. Definition (និយមន័យ):</p>
+            <p class="step-text"><strong>Environment Variables (<code class="ic">.env</code>)</strong>
+                គឺជាឯកសារពិសេសសម្រាប់រក្សាទុកព័ត៌មានសម្ងាត់ និងការកំណត់ប្រព័ន្ធ ដូចជាលេខ Port, Database URL, និង API
+                Keys ដោយមិនសរសេរចូលក្នុងកូដផ្ទាល់។</p>
+
+            <p class="step-heading">2. មុខងារសំខាន់ៗ:</p>
+            <ul class="step-list">
+                <li><code class="ic">npm install dotenv</code> <strong>(ដំឡើងកញ្ចប់ dotenv)៖</strong> ជា Library
+                    សម្រាប់អានទិន្នន័យពីឯកសារ <code class="ic">.env</code> ចូលមកក្នុង Node.js។</li>
+                <li><code class="ic">require('dotenv').config()</code> <strong>(បើកដំណើរការ)៖</strong>
+                    ត្រូវសរសេរនៅបន្ទាត់លើគេបង្អស់នៃឯកសារ <code class="ic">server.js</code>។</li>
+                <li><code class="ic">process.env.VARIABLE_NAME</code> <strong>(ហៅតម្លៃមកប្រើ)៖</strong>
+                    ប្រើសម្រាប់ទាញយកតម្លៃពី <code class="ic">.env</code> មកប្រើក្នុងកូដ។</li>
+                <li><strong>សុវត្ថិភាព (.gitignore)៖</strong> ត្រូវដាក់ <code class="ic">.env</code> ចូលក្នុង <code
+                        class="ic">.gitignore</code> ដើម្បីកុំឱ្យបែកធ្លាយពាក្យសម្ងាត់លើ GitHub។</li>
+            </ul>
+
+            <p class="step-heading">3. ប្រើពេលណា (When to Use):</p>
+            <p class="step-text">ប្រើរាល់ពេលភ្ជាប់ Database, រក្សាទុក JWT Secret Key ឬមុនពេល Push កូដគម្រោងទៅកាន់ GitHub
+                ដើម្បីការពារសុវត្ថិភាពទិន្នន័យ។</p>
+
+            <p class="step-heading">4. Syntax (ទម្រង់ឯកសារ .env និង server.js):</p>
+            <div class="code-box">
+                <pre><span class="t-com"># ១. ឯកសារ .env</span>
+<span class="t-prop">PORT</span>=<span class="t-num">5000</span>
+<span class="t-prop">MONGO_URI</span>=<span class="t-str">mongodb://localhost:27017/school_db</span>
+
+<span class="t-com">// ២. ឯកសារ server.js</span>
+<span class="t-fn">require</span>(<span class="t-str">'dotenv'</span>).<span class="t-fn">config</span>();
+<span class="t-kw">const</span> port = process.env.PORT || <span class="t-num">3000</span>;
+console.<span class="t-fn">log</span>(<span class="t-str">"Port ពី .env គឺ៖"</span>, port);</pre>
+            </div>
+
+            <p class="step-heading">5. Output (លទ្ធផលនៅលើ Terminal):</p>
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="browser-dots"><span class="browser-dot dot-red"></span><span
+                            class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+                    <div class="terminal-title">Terminal — bash</div>
+                </div>
+                <div class="terminal-body">
+                    <div>$ node server.js</div>
+                    <div class="t-out">Port ពី .env គឺ៖ 5000</div>
+                </div>
+            </div>
+
+            <div class="summary-box">
+                <strong>6. Summary (សង្ខេបមេរៀន)៖</strong> រាល់ព័ត៌មានសម្ងាត់ដូចជា Password Database ឬ Secret Key
+                ត្រូវទុកក្នុង <code class="ic">.env</code> ហើយហៅប្រើតាម <code class="ic">process.env</code> ជានិច្ច។
+            </div>
+        </div>
+
+        <footer class="page-foot">
+            <span class="author-credit">រៀបចំដោយ៖ លាត ប្រុស</span>
+            <span class="page-num">ទំព័រ 13</span>
+        </footer>
+    </section>
+
+    <!-- CHAPTER 12 -->
+    <section class="page" id="chapter-12">
+        <div class="page-body">
+            <header class="page-top-header">
+                <a href="#toc">Node.js &amp; Express.js</a>
+                <span>12. Connecting MongoDB with Mongoose</span>
+            </header>
+
+            <h2 class="ch-title">12. ការតភ្ជាប់ Express.js ទៅកាន់ MongoDB (Mongoose)</h2>
+
+            <p class="step-heading">1. Definition (និយមន័យ):</p>
+            <p class="step-text"><strong>Mongoose</strong> គឺជា ODM (Object Data Modeling) Library សម្រាប់តភ្ជាប់
+                Node.js/Express.js ទៅកាន់ MongoDB និងជួយកំណត់រចនាសម្ព័ន្ធទិន្នន័យ (<code class="ic">Schema</code>)
+                ឱ្យមានស្តង់ដារច្បាស់លាស់។</p>
+
+            <p class="step-heading">2. មុខងារសំខាន់ៗ:</p>
+            <ul class="step-list">
+                <li><code class="ic">mongoose.connect()</code> <strong>(តភ្ជាប់ Database)៖</strong> ភ្ជាប់ Server ទៅកាន់
+                    MongoDB Compass (Local) ឬ MongoDB Atlas (Cloud)។</li>
+                <li><code class="ic">new mongoose.Schema()</code> <strong>(បង្កើតគំរូទិន្នន័យ)៖</strong> កំណត់ឈ្មោះ
+                    Fields និងប្រភេទទិន្នន័យ (String, Number, Boolean)។</li>
+                <li><code class="ic">mongoose.model()</code> <strong>(បង្កើត Model)៖</strong> បង្កើត Collection ក្នុង
+                    Database ដើម្បីប្រើសម្រាប់បង្កើត អាន កែ និងលុបទិន្នន័យ។</li>
+            </ul>
+
+            <p class="step-heading">3. ប្រើពេលណា (When to Use):</p>
+            <p class="step-text">ប្រើនៅពេលត្រូវការរក្សាទុកទិន្នន័យជាអចិន្ត្រៃយ៍ (Persistent Storage) ក្នុង MongoDB
+                ជំនួសឱ្យការទុកទិន្នន័យបណ្តោះអាសន្នក្នុង Array នៃកូដ។</p>
+
+            <p class="step-heading">4. Syntax (ទម្រង់កូដតភ្ជាប់ និងបង្កើត Model):</p>
+            <div class="code-box">
+                <pre><span class="t-kw">const</span> mongoose = <span class="t-fn">require</span>(<span class="t-str">'mongoose'</span>);
+
+mongoose.<span class="t-fn">connect</span>(process.env.MONGO_URI)
+  .<span class="t-fn">then</span>(() => console.<span class="t-fn">log</span>(<span class="t-str">"តភ្ជាប់ MongoDB បានជោគជ័យ!"</span>))
+  .<span class="t-fn">catch</span>(err => console.<span class="t-fn">error</span>(<span class="t-str">"បរាជ័យ៖"</span>, err));
+
+<span class="t-kw">const</span> studentSchema = <span class="t-kw">new</span> mongoose.<span class="t-fn">Schema</span>({
+  name: { type: String, required: <span class="t-kw">true</span> },
+  age: Number,
+  course: String
+}, { timestamps: <span class="t-kw">true</span> });
+
+<span class="t-kw">const</span> Student = mongoose.<span class="t-fn">model</span>(<span class="t-str">'Student'</span>, studentSchema);</pre>
+            </div>
+
+            <p class="step-heading">5. Output (លទ្ធផលនៅលើ Terminal):</p>
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="browser-dots"><span class="browser-dot dot-red"></span><span
+                            class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+                    <div class="terminal-title">Terminal — Database Connection</div>
+                </div>
+                <div class="terminal-body">
+                    <div class="t-out">Server running on port 5000</div>
+                    <div class="t-out">តភ្ជាប់ MongoDB បានជោគជ័យ!</div>
+                </div>
+            </div>
+
+            <div class="summary-box">
+                <strong>6. Summary (សង្ខេបមេរៀន)៖</strong> ដំឡើង <code class="ic">npm install mongoose</code> រួចប្រើ
+                <code class="ic">mongoose.connect()</code> ដើម្បីភ្ជាប់ Database និងបង្កើត <code
+                    class="ic">Schema</code> សម្រាប់គ្រប់គ្រងទិន្នន័យ។
+            </div>
+        </div>
+
+        <footer class="page-foot">
+            <span class="author-credit">រៀបចំដោយ៖ លាត ប្រុស</span>
+            <span class="page-num">ទំព័រ 14</span>
+        </footer>
+    </section>
+
+    <!-- CHAPTER 13 -->
+    <section class="page" id="chapter-13">
+        <div class="page-body">
+            <header class="page-top-header">
+                <a href="#toc">Node.js &amp; Express.js</a>
+                <span>13. Full CRUD API Operations</span>
+            </header>
+
+            <h2 class="ch-title">13. ការបង្កើត CRUD API ពេញលេញ (Create, Read, Update, Delete)</h2>
+
+            <p class="step-heading">1. Definition (និយមន័យ):</p>
+            <p class="step-text"><strong>CRUD</strong> មកពីពាក្យ <strong>Create</strong> (បង្កើត), <strong>Read</strong>
+                (អាន), <strong>Update</strong> (កែប្រែ) និង <strong>Delete</strong> (លុប) ដែលជាប្រតិបត្តិការស្នូលទាំង ៤
+                របស់ Backend API ជាមួយ Database ដោយប្រើ <code class="ic">async / await</code>។</p>
+
+            <p class="step-heading">2. មុខងារសំខាន់ៗរបស់ Mongoose Model:</p>
+            <ul class="step-list">
+                <li><code class="ic">Student.create(req.body)</code> <strong>(Create)៖</strong>
+                    រក្សាទុកទិន្នន័យថ្មីចូលក្នុង MongoDB។</li>
+                <li><code class="ic">Student.find()</code> <strong>(Read)៖</strong> ទាញយកបញ្ជីទិន្នន័យទាំងអស់ពី Database
+                    (ឬ <code class="ic">findById()</code> សម្រាប់ទិន្នន័យមួយ)។</li>
+                <li><code class="ic">Student.findByIdAndUpdate(id, req.body, { new: true })</code>
+                    <strong>(Update)៖</strong> កែប្រែទិន្នន័យតាម ID និងត្រឡប់ទិន្នន័យថ្មីមកវិញ។
+                </li>
+                <li><code class="ic">Student.findByIdAndDelete(id)</code> <strong>(Delete)៖</strong> លុបទិន្នន័យចេញពី
+                    Database តាម ID។</li>
+            </ul>
+
+            <p class="step-heading">3. ប្រើពេលណា (When to Use):</p>
+            <p class="step-text">ប្រើនៅពេលបង្កើតមុខងារគ្រប់គ្រងទិន្នន័យពេញលេញក្នុងប្រព័ន្ធ ដូចជា ប្រព័ន្ធគ្រប់គ្រងសិស្ស
+                គ្រប់គ្រងស្តុកទំនិញ ឬប្រព័ន្ធបង្ហោះអត្ថបទ។</p>
+
+            <p class="step-heading">4. Syntax (ទម្រង់កូដ Controller ពេញលេញ):</p>
+            <div class="code-box">
+                <pre>app.<span class="t-fn">post</span>(<span class="t-str">'/api/students'</span>, <span class="t-kw">async</span> (req, res) => {
+  <span class="t-kw">const</span> student = <span class="t-kw">await</span> Student.<span class="t-fn">create</span>(req.body);
+  res.<span class="t-fn">status</span>(<span class="t-num">201</span>).<span class="t-fn">json</span>(student);
+});
+app.<span class="t-fn">get</span>(<span class="t-str">'/api/students'</span>, <span class="t-kw">async</span> (req, res) => {
+  res.<span class="t-fn">json</span>(<span class="t-kw">await</span> Student.<span class="t-fn">find</span>());
+});
+app.<span class="t-fn">put</span>(<span class="t-str">'/api/students/:id'</span>, <span class="t-kw">async</span> (req, res) => {
+  res.<span class="t-fn">json</span>(<span class="t-kw">await</span> Student.<span class="t-fn">findByIdAndUpdate</span>(req.params.id, req.body, { new: <span class="t-kw">true</span> }));
+});
+app.<span class="t-fn">delete</span>(<span class="t-str">'/api/students/:id'</span>, <span class="t-kw">async</span> (req, res) => {
+  <span class="t-kw">await</span> Student.<span class="t-fn">findByIdAndDelete</span>(req.params.id);
+  res.<span class="t-fn">json</span>({ message: <span class="t-str">"លុបទិន្នន័យសិស្សរួចរាល់!"</span> });
+});</pre>
+            </div>
+
+            <p class="step-heading">5. Output (លទ្ធផលនៅលើ Postman):</p>
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="browser-dots"><span class="browser-dot dot-red"></span><span
+                            class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+                    <div class="terminal-title">POST http://localhost:5000/api/students — 201 Created</div>
+                </div>
+                <div class="terminal-body">
+                    <div class="t-json">{"_id": "673a91f8b2c4e", "name": "ចាន់ ដារ៉ា", "age": 20, "course": "Web Dev"}
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary-box">
+                <strong>6. Summary (សង្ខេបមេរៀន)៖</strong> ប្រើ <code class="ic">async / await</code> រួមជាមួយ <code
+                    class="ic">.create()</code>, <code class="ic">.find()</code>, <code
+                    class="ic">.findByIdAndUpdate()</code> និង <code class="ic">.findByIdAndDelete()</code>
+                ដើម្បីគ្រប់គ្រងទិន្នន័យ CRUD ទាំងស្រុង។
+            </div>
+        </div>
+
+        <footer class="page-foot">
+            <span class="author-credit">រៀបចំដោយ៖ លាត ប្រុស</span>
+            <span class="page-num">ទំព័រ 15</span>
+        </footer>
+    </section>
+
+    <!-- CHAPTER 14 -->
+    <section class="page" id="chapter-14">
+        <div class="page-body">
+            <header class="page-top-header">
+                <a href="#toc">Node.js &amp; Express.js</a>
+                <span>14. Error Handling &amp; HTTP Status Codes</span>
+            </header>
+
+            <h2 class="ch-title">14. ការគ្រប់គ្រង Error Handling និង HTTP Status Codes</h2>
+
+            <p class="step-heading">1. Definition (និយមន័យ):</p>
+            <p class="step-text"><strong>Error Handling</strong> គឺជាការចាប់កំហុសដែលកើតឡើងក្នុងពេលដំណើរការ Server (ដូចជា
+                ID ខុសទម្រង់ ឬ Database ដាច់) ដើម្បីកុំឱ្យ Server គាំង (Crash)
+                និងបញ្ជូនសារប្រាប់អ្នកប្រើប្រាស់វិញឱ្យបានត្រឹមត្រូវ។</p>
+
+            <p class="step-heading">2. មុខងារសំខាន់ៗ (HTTP Status Codes ស្តង់ដារ):</p>
+            <ul class="step-list">
+                <li><code class="ic">200 OK</code> / <code class="ic">201 Created</code> <strong>(ជោគជ័យ)៖</strong>
+                    <code class="ic">200</code> ប្រតិបត្តិការជោគជ័យ និង <code class="ic">201</code>
+                    បង្កើតទិន្នន័យថ្មីជោគជ័យ។
+                </li>
+                <li><code class="ic">400 Bad Request</code> <strong>(ទិន្នន័យបញ្ចូលមិនត្រឹមត្រូវ)៖</strong>
+                    អ្នកប្រើប្រាស់បំពេញទិន្នន័យខ្វះ ឬខុសលក្ខខណ្ឌ។</li>
+                <li><code class="ic">404 Not Found</code> <strong>(រកមិនឃើញ)៖</strong> ផ្លូវ URL ឬ ID
+                    ទិន្នន័យដែលស្វែងរកមិនមាននៅក្នុងប្រព័ន្ធ។</li>
+                <li><code class="ic">500 Internal Server Error</code> <strong>(កំហុសខាង Server)៖</strong> កំហុសកូដ ឬ
+                    Database (ចាប់តាមរយៈ <code class="ic">try { ... } catch (err) { ... }</code>)។</li>
+            </ul>
+
+            <p class="step-heading">3. ប្រើពេលណា (When to Use):</p>
+            <p class="step-text">ប្រើគ្រប់ពេលសរសេរកូដ <code class="ic">async / await</code> ជាមួយ Database
+                ដើម្បីការពារកុំឱ្យ Server រលត់ពេលមានបញ្ហា និងជួយឱ្យ Frontend ដឹងពីមូលហេតុនៃកំហុសច្បាស់លាស់។</p>
+
+            <p class="step-heading">4. Syntax (ទម្រង់កូដ try...catch):</p>
+            <div class="code-box">
+                <pre>app.<span class="t-fn">get</span>(<span class="t-str">'/api/students/:id'</span>, <span class="t-kw">async</span> (req, res) => {
+  <span class="t-kw">try</span> {
+    <span class="t-kw">const</span> student = <span class="t-kw">await</span> Student.<span class="t-fn">findById</span>(req.params.id);
+    <span class="t-kw">if</span> (!student) <span class="t-kw">return</span> res.<span class="t-fn">status</span>(<span class="t-num">404</span>).<span class="t-fn">json</span>({ message: <span class="t-str">"រកមិនឃើញទិន្នន័យសិស្សនេះទេ!"</span> });
+    res.<span class="t-fn">status</span>(<span class="t-num">200</span>).<span class="t-fn">json</span>(student);
+  } <span class="t-kw">catch</span> (error) {
+    res.<span class="t-fn">status</span>(<span class="t-num">500</span>).<span class="t-fn">json</span>({ message: <span class="t-str">"មានបញ្ហា Server៖"</span>, error: error.message });
+  }
+});</pre>
+            </div>
+
+            <p class="step-heading">5. Output (លទ្ធផលនៅលើ Postman ពេលរកមិនឃើញ ID):</p>
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="browser-dots"><span class="browser-dot dot-red"></span><span
+                            class="browser-dot dot-yellow"></span><span class="browser-dot dot-green"></span></div>
+                    <div class="terminal-title">GET http://localhost:5000/api/students/673a999999999 — 404 Not Found
+                    </div>
+                </div>
+                <div class="terminal-body">
+                    <div class="t-err">{"message": "រកមិនឃើញទិន្នន័យសិស្សនេះទេ!"}</div>
+                </div>
+            </div>
+
+            <div class="summary-box">
+                <strong>6. Summary (សង្ខេបមេរៀន)៖</strong> រាល់កូដដែលប្រើ <code class="ic">async / await</code>
+                ត្រូវតែស្រោបដោយ <code class="ic">try...catch</code> ជានិច្ច និងប្រើ <code class="ic">res.status()</code>
+                ឱ្យត្រូវតាមស្ថានភាពជាក់ស្តែង។
+            </div>
+        </div>
+
+        <footer class="page-foot">
+            <span class="author-credit">រៀបចំដោយ៖ លាត ប្រុស</span>
+            <span class="page-num">ទំព័រ 16</span>
+        </footer>
+    </section>
+
+    <!-- THANK YOU PAGE -->
+    <section class="page">
+        <header class="page-top-header">
+            <a href="#toc">Node.js &amp; Express.js</a>
+            <span>បញ្ចប់មេរៀន</span>
+        </header>
+
+        <div class="thank-you-box">
+            <h2 class="thank-you-title">សូមអរគុណ!</h2>
+            <p class="thank-you-desc">
+                សូមអរគុណសម្រាប់ការខិតខំប្រឹងប្រែងសិក្សាមេរៀន <strong>Node.js &amp; Express.js</strong> ពីដើមដល់ចប់។
+                សង្ឃឹមថាចំណេះដឹងទាំងអស់នៅក្នុងសៀវភៅនេះ នឹងក្លាយជាមូលដ្ឋានគ្រឹះដ៏រឹងមាំសម្រាប់អ្នកក្នុងការបង្កើត Backend
+                និង RESTful API ប្រកបដោយវិជ្ជាជីវៈ។
+            </p>
+            <div class="contact-card">
+                <p><strong>រៀបចំ និងចងក្រងដោយ៖ លាត ប្រុស</strong></p>
+                <p style="color: var(--primary); font-weight: 600; margin-top: 4px;">Bros Like Teaching — Web
+                    Development &amp; Programming</p>
+            </div>
+        </div>
+
+        <footer class="page-foot">
+            <span class="author-credit">រៀបចំដោយ៖ លាត ប្រុស</span>
+            <span class="page-num">ទំព័រ 17</span>
+        </footer>
+    </section>
+
+</body>
+
+</html>
