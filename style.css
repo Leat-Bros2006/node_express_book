@@ -10,21 +10,21 @@
     --code-bg: #0F172A;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Kantumruy Pro', sans-serif;
     background-color: #E2E8F0;
     color: var(--text);
-    line-height: 1.48;
+    line-height: 1.62;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
 }
@@ -39,7 +39,7 @@ body {
     height: 297mm;
     background: #FFFFFF;
     margin: 12mm auto;
-    padding: 12mm 16mm 10mm 16mm;
+    padding: 14mm 16mm 12mm 16mm;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
     display: flex;
     flex-direction: column;
@@ -53,7 +53,6 @@ body {
     body {
         background: none;
     }
-
     .page {
         margin: 0;
         box-shadow: none;
@@ -62,27 +61,12 @@ body {
 }
 
 /* Cover Page */
-/* Cover Page */
 .cover-page {
     background: linear-gradient(145deg, #0F172A 0%, #14532D 55%, #15803D 100%);
     color: #FFFFFF;
     padding: 22mm 20mm;
     justify-content: center;
-    /* រុញខ្លឹមសារទាំងអស់ឱ្យនៅចំកណ្តាលទំព័រតាមបណ្តោយ (Vertical Middle) */
     align-items: flex-start;
-    /* រក្សាអក្សរឱ្យតម្រឹមខាងឆ្វេង មិនមែន center */
-}
-
-.cover-footer {
-    width: 100%;
-    border-top: 1px solid rgba(255, 255, 255, 0.25);
-    padding-top: 14px;
-    margin-top: 28px;
-    /* ដាក់នៅបន្ទាប់ពីប្រអប់ប្រធានបទទាំង ៤ */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.98rem;
 }
 
 .cover-badge {
@@ -143,12 +127,14 @@ body {
 }
 
 .cover-footer {
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
     padding-top: 14px;
+    margin-top: 28px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 0.95rem;
+    font-size: 0.98rem;
 }
 
 /* Header & Footer */
@@ -157,8 +143,8 @@ body {
     justify-content: space-between;
     align-items: center;
     border-bottom: 1.5px solid var(--border);
-    padding-bottom: 5px;
-    margin-bottom: 8px;
+    padding-bottom: 6px;
+    margin-bottom: 12px;
     font-size: 0.78rem;
     color: var(--muted);
     font-weight: 600;
@@ -172,7 +158,7 @@ body {
 
 .page-foot {
     border-top: 1px solid var(--border);
-    padding-top: 5px;
+    padding-top: 6px;
     display: flex;
     justify-content: space-between;
     font-size: 0.78rem;
@@ -180,49 +166,51 @@ body {
     font-weight: 500;
 }
 
-/* Chapter Typography */
+/* Chapter Typography & Spacing */
 .ch-title {
-    font-size: 1.22rem;
+    font-size: 1.28rem;
     font-weight: 700;
     color: var(--primary-dark);
     background: var(--primary-light);
     border-left: 5px solid var(--primary);
-    padding: 5px 12px;
+    padding: 7px 12px;
     border-radius: 0 6px 6px 0;
-    margin-bottom: 7px;
+    margin-bottom: 10px;
 }
 
 .step-heading {
-    font-size: 0.88rem;
+    font-size: 0.91rem;
     font-weight: 700;
     color: var(--dark);
-    margin-top: 5px;
-    margin-bottom: 2px;
+    margin-top: 9px;
+    margin-bottom: 4px;
 }
 
 .step-text {
-    font-size: 0.82rem;
+    font-size: 0.85rem;
     color: var(--text);
-    margin-bottom: 4px;
+    line-height: 1.62;
+    margin-bottom: 7px;
 }
 
 .step-list {
     padding-left: 18px;
-    font-size: 0.8rem;
-    margin-bottom: 4px;
+    font-size: 0.83rem;
+    line-height: 1.6;
+    margin-bottom: 7px;
 }
 
 .step-list li {
-    margin-bottom: 2px;
+    margin-bottom: 4px;
 }
 
 code.ic {
     font-family: 'Fira Code', monospace;
     background: #F1F5F9;
     color: #B91C1C;
-    padding: 1px 4px;
+    padding: 1px 5px;
     border-radius: 4px;
-    font-size: 0.74rem;
+    font-size: 0.76rem;
     border: 1px solid #E2E8F0;
 }
 
@@ -231,51 +219,33 @@ code.ic {
     background: var(--code-bg);
     color: #F8FAFC;
     border-radius: 7px;
-    padding: 7px 11px;
-    margin: 3px 0 5px 0;
+    padding: 9px 12px;
+    margin: 5px 0 8px 0;
     font-family: 'Fira Code', monospace;
-    font-size: 0.72rem;
-    line-height: 1.38;
+    font-size: 0.74rem;
+    line-height: 1.48;
     overflow-x: auto;
 }
 
-.t-kw {
-    color: #C084FC;
-}
-
-.t-fn {
-    color: #38BDF8;
-}
-
-.t-str {
-    color: #4ADE80;
-}
-
-.t-num {
-    color: #FB923C;
-}
-
-.t-com {
-    color: #94A3B8;
-    font-style: italic;
-}
-
-.t-prop {
-    color: #7DD3FC;
-}
+.t-kw { color: #C084FC; }
+.t-fn { color: #38BDF8; }
+.t-str { color: #4ADE80; }
+.t-num { color: #FB923C; }
+.t-com { color: #94A3B8; font-style: italic; }
+.t-prop { color: #7DD3FC; }
 
 /* Terminal & Postman Output Box */
 .terminal-window {
     border: 1px solid #334155;
     border-radius: 7px;
     overflow: hidden;
-    margin: 3px 0 5px 0;
+    margin: 5px 0 8px 0;
     background: #020617;
 }
 
 .terminal-header {
     background: #1E293B;
-    padding: 3px 10px;
+    padding: 4px 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -292,31 +262,22 @@ code.ic {
     height: 8px;
     border-radius: 50%;
 }
-
-.dot-red {
-    background: #EF4444;
-}
-
-.dot-yellow {
-    background: #F59E0B;
-}
-
-.dot-green {
-    background: #22C55E;
-}
+.dot-red { background: #EF4444; }
+.dot-yellow { background: #F59E0B; }
+.dot-green { background: #22C55E; }
 
 .terminal-title {
     font-family: 'Fira Code', monospace;
-    font-size: 0.67rem;
+    font-size: 0.68rem;
     color: #CBD5E1;
 }
 
 .terminal-body {
-    padding: 5px 10px;
+    padding: 7px 11px;
     font-family: 'Fira Code', monospace;
-    font-size: 0.7rem;
+    font-size: 0.72rem;
     color: #4ADE80;
-    line-height: 1.32;
+    line-height: 1.45;
 }
 
 .terminal-body .t-out {
@@ -336,19 +297,20 @@ code.ic {
     background: #F0FDF4;
     border: 1px solid #86EFAC;
     border-left: 4px solid var(--primary);
-    padding: 5px 10px;
+    padding: 7px 11px;
     border-radius: 6px;
-    font-size: 0.79rem;
-    margin-top: 4px;
+    font-size: 0.82rem;
+    line-height: 1.55;
+    margin-top: 8px;
 }
 
 /* TOC Styles */
 .toc-section-title {
-    font-size: 0.94rem;
+    font-size: 0.96rem;
     font-weight: 700;
     color: var(--primary-dark);
-    margin: 9px 0 4px 0;
-    padding-bottom: 3px;
+    margin: 12px 0 5px 0;
+    padding-bottom: 4px;
     border-bottom: 1.5px solid var(--primary-light);
 }
 
@@ -361,8 +323,8 @@ code.ic {
     justify-content: space-between;
     text-decoration: none;
     color: var(--text);
-    font-size: 0.82rem;
-    padding: 3.5px 6px;
+    font-size: 0.84rem;
+    padding: 5px 6px;
     border-bottom: 1px dashed #CBD5E1;
 }
 
@@ -412,7 +374,7 @@ code.ic {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
-/* Responsive សម្រាប់អេក្រង់ទូរស័ព្ទ និង Tablet (មិនប៉ះពាល់ដល់ការ Print A4 ឡើយ) */
+/* Responsive សម្រាប់អេក្រង់ទូរស័ព្ទ និង Tablet */
 @media screen and (max-width: 820px) {
     body {
         padding: 8px;
@@ -427,9 +389,14 @@ code.ic {
         overflow: visible;
     }
 
-    /* ទំព័រក្រប (Cover Page) */
     .cover-page {
         padding: 32px 20px;
+    }
+
+    .cover-badge {
+        font-size: 0.72rem;
+        padding: 5px 12px;
+        margin-bottom: 14px;
     }
 
     .cover-title {
@@ -446,7 +413,7 @@ code.ic {
     }
 
     .cover-topics {
-        grid-template-columns: 1fr; /* ប្តូរពី ២ ជួរឈរ មក ១ ជួរឈរលើទូរស័ព្ទ */
+        grid-template-columns: 1fr;
         gap: 10px;
         margin-top: 20px;
     }
@@ -457,7 +424,6 @@ code.ic {
         gap: 4px;
     }
 
-    /* ក្បាលទំព័រ និងមាតិកា */
     .ch-title {
         font-size: 1.08rem;
     }
@@ -468,15 +434,13 @@ code.ic {
     }
 
     .toc-page {
-        white-space: nowrap; /* កុំឱ្យពាក្យ "ទំព័រ X" ធ្លាក់ចុះបន្ទាត់ */
+        white-space: nowrap;
     }
 
-    /* បាតទំព័រ */
     .page-foot {
         margin-top: 16px;
     }
 
-    /* ទំព័រសូមអរគុណ */
     .thank-you-box {
         padding: 24px 16px;
     }

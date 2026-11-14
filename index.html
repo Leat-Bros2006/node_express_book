@@ -123,17 +123,26 @@
                 ដែលអនុញ្ញាតឱ្យយើងអាចដំណើរការកូដ JavaScript នៅខាងក្រៅ Browser (នៅលើ Server ឬកុំព្យូទ័រផ្ទាល់)
                 ដោយប្រើប្រាស់ V8 Engine របស់ Google Chrome។</p>
 
-            <p class="step-heading">2. មុខងារសំខាន់ៗ:</p>
-            <ul class="step-list">
-                <li><strong>បង្កើត Backend &amp; API៖</strong> ប្រើសម្រាប់សរសេរ Server ទទួល និងឆ្លើយតបទិន្នន័យជាមួយ
-                    Frontend (React, Vue, Mobile App)។</li>
-                <li><strong>ដំណើរការលឿន (Non-blocking I/O)៖</strong> អាចទទួលសំណើ (Requests)
-                    ពីអ្នកប្រើប្រាស់ច្រើននាក់ក្នុងពេលតែមួយដោយមិនរង់ចាំគ្នា។</li>
-                <li><strong>ប្រើភាសាតែមួយ (Full-Stack JS)៖</strong> អ្នកសរសេរកូដអាចប្រើភាសា JavaScript ទាំង Frontend និង
-                    Backend។</li>
+            <p class="step-heading">2. មុខងារ និងពាក្យបញ្ជាសំខាន់ៗ:</p>
+            <ul class="step-list" style="margin-bottom: 4px;">
                 <li><code class="ic">node -v</code> <strong>(ពិនិត្យជំនាន់)៖</strong>
-                    ពាក្យបញ្ជាសម្រាប់ឆែកមើលថាតើកុំព្យូទ័របានដំឡើង Node.js រួចរាល់ឬនៅ។</li>
+                    ពាក្យបញ្ជាសម្រាប់ឆែកមើលជំនាន់ Node.js ដែលបានដំឡើងលើម៉ាស៊ីន។</li>
+                <li><code class="ic">node app.js</code> <strong>(ដំណើរការកូដ)៖</strong>
+                    ប្រើសម្រាប់រត់ឯកសារ JavaScript (<code class="ic">.js</code>) នៅក្នុង Terminal។</li>
+                <li><code class="ic">console.log()</code> <strong>(បង្ហាញលទ្ធផល)៖</strong>
+                    បោះពុម្ពទិន្នន័យ ឬសារពិនិត្យកំហុស (Debug) ចេញមកលើផ្ទាំង Terminal។</li>
             </ul>
+
+            <div style="margin-left: 16px;">
+                <p style="font-size: 0.80rem; font-weight: 600; margin: 2px 0;">លក្ខណៈពិសេសស្នូលរបស់ Node.js:</p>
+                <ul class="step-list" style="margin-top: 0;">
+                    <li><strong>V8 Engine៖</strong> បម្លែងកូដ JavaScript ទៅជា Machine Code បានយ៉ាងលឿនបំផុត។</li>
+                    <li><strong>Non-blocking I/O៖</strong> អាចទទួលសំណើ (Requests)
+                        ពីអ្នកប្រើប្រាស់ច្រើននាក់ព្រមគ្នាដោយមិនរង់ចាំគ្នា។</li>
+                    <li><strong>Full-Stack JavaScript៖</strong> ប្រើភាសា JavaScript តែមួយទាំងផ្នែក Frontend និង Backend។
+                    </li>
+                </ul>
+            </div>
 
             <p class="step-heading">3. ប្រើពេលណា (When to Use):</p>
             <p class="step-text">ប្រើនៅពេលយើងចង់បង្កើត Server-Side Web Application, RESTful APIs, Real-time Chat Apps
@@ -189,17 +198,25 @@ console.<span class="t-fn">log</span>(<span class="t-str">`សួស្តី ${
             <p class="step-text"><strong>NPM (Node Package Manager)</strong> គឺជាកម្មវិធីគ្រប់គ្រងកញ្ចប់កូដ
                 (Libraries/Packages) របស់ Node.js ដែលភ្ជាប់មកជាមួយស្រាប់ពេលយើងដំឡើង Node.js។</p>
 
-            <p class="step-heading">2. មុខងារសំខាន់ៗ:</p>
-            <ul class="step-list">
+            <p class="step-heading">2. មុខងារ និងពាក្យបញ្ជាសំខាន់ៗ:</p>
+            <ul class="step-list" style="margin-bottom: 4px;">
                 <li><code class="ic">npm init -y</code> <strong>(បង្កើតគម្រោងថ្មី)៖</strong> បង្កើតឯកសារ <code
                         class="ic">package.json</code> ដោយស្វ័យប្រវត្តិសម្រាប់កត់ត្រាព័ត៌មានគម្រោង។</li>
-                <li><code class="ic">npm install ឈ្មោះកញ្ចប់</code> <strong>(ដំឡើង Library)៖</strong>
+                <li><code class="ic">npm install &lt;pkg&gt;</code> <strong>(ដំឡើង Library)៖</strong>
                     ទាញយកកញ្ចប់កូដមកប្រើ (ឧ. <code class="ic">npm install express</code>)។</li>
                 <li><code class="ic">npm install -D nodemon</code> <strong>(Dev Dependency)៖</strong>
                     ដំឡើងឧបករណ៍ជំនួយពេលសរសេរកូដ (Restart Server ស្វ័យប្រវត្តិពេលកែកូដ)។</li>
-                <li><code class="ic">node_modules</code> <strong>(ថតផ្ទុកកូដ)៖</strong> ជា Folder
-                    ដែលផ្ទុកកញ្ចប់កូដទាំងអស់ដែលបានដំឡើង (មិនត្រូវ Upload ទៅ GitHub ទេ)។</li>
             </ul>
+
+            <div style="margin-left: 16px;">
+                <p style="font-size: 0.80rem; font-weight: 600; margin: 2px 0;">ឯកសារ និងថតសំខាន់ៗក្នុងគម្រោង NPM:</p>
+                <ul class="step-list" style="margin-top: 0;">
+                    <li><code class="ic">package.json</code> <strong>(Config File)៖</strong> កត់ត្រាឈ្មោះគម្រោង, Scripts
+                        និងបញ្ជី Libraries ដែលបានដំឡើង។</li>
+                    <li><code class="ic">node_modules/</code> <strong>(Packages Folder)៖</strong> ថតផ្ទុកកូដ Libraries
+                        ទាំងអស់ (ត្រូវដាក់ក្នុង <code class="ic">.gitignore</code>)។</li>
+                </ul>
+            </div>
 
             <p class="step-heading">3. ប្រើពេលណា (When to Use):</p>
             <p class="step-text">ប្រើនៅពេលចាប់ផ្តើមបង្កើតគម្រោង Backend ថ្មីដំបូង ឬត្រូវការទាញយក Libraries ជំនួយមកប្រើ
@@ -261,15 +278,25 @@ console.<span class="t-fn">log</span>(<span class="t-str">`សួស្តី ${
             <p class="step-text"><strong>Module</strong> គឺជាការបំបែកកូដ JavaScript ជាឯកសារតូចៗដាច់ដោយឡែកពីគ្នាតាមមុខងារ
                 ដើម្បីងាយស្រួលគ្រប់គ្រង កែប្រែ និងយកទៅប្រើឡើងវិញនៅក្នុងឯកសារផ្សេងទៀត។</p>
 
-            <p class="step-heading">2. មុខងារសំខាន់ៗ:</p>
-            <ul class="step-list">
-                <li><strong>CommonJS (ទម្រង់ដើមរបស់ Node.js)៖</strong> ប្រើ <code class="ic">module.exports</code>
-                    ដើម្បីបញ្ចេញកូដ និង <code class="ic">require()</code> ដើម្បីទាញយកមកប្រើ។</li>
-                <li><strong>ES Modules (ទម្រង់ទំនើប ES6)៖</strong> ប្រើ <code class="ic">export</code> និង <code
-                        class="ic">import</code> (ត្រូវបន្ថែម <code class="ic">"type": "module"</code> ក្នុង <code
-                        class="ic">package.json</code>)។</li>
-                <li><strong>អត្ថប្រយោជន៍៖</strong> ជៀសវាងការសរសេរកូដរាប់ពាន់បន្ទាត់គរក្នុងឯកសារតែមួយ។</li>
+            <p class="step-heading">2. មុខងារ និងពាក្យគន្លឹះសំខាន់ៗ:</p>
+            <ul class="step-list" style="margin-bottom: 4px;">
+                <li><code class="ic">module.exports</code> <strong>(បញ្ចេញកូដ)៖</strong> ប្រើសម្រាប់បញ្ជូន Functions ឬ
+                    Variables ចេញពីឯកសារបច្ចុប្បន្ន។</li>
+                <li><code class="ic">require('./file')</code> <strong>(ទាញកូដមកប្រើ)៖</strong> ប្រើសម្រាប់នាំចូល Module
+                    ពីឯកសារផ្សេងមកប្រើ។</li>
             </ul>
+
+            <div style="margin-left: 16px;">
+                <p style="font-size: 0.80rem; font-weight: 600; margin: 2px 0;">ប្រព័ន្ធ Modules ទាំង ២ ក្នុង Node.js:
+                </p>
+                <ul class="step-list" style="margin-top: 0;">
+                    <li><strong>CommonJS (Default)៖</strong> ប្រើ <code class="ic">module.exports</code> និង <code
+                            class="ic">require()</code> (ទម្រង់ដើមរបស់ Node.js)។</li>
+                    <li><strong>ES Modules (ES6)៖</strong> ប្រើ <code class="ic">export</code> និង <code
+                            class="ic">import</code> (ត្រូវថែម <code class="ic">"type": "module"</code> ក្នុង <code
+                            class="ic">package.json</code>)។</li>
+                </ul>
+            </div>
 
             <p class="step-heading">3. ប្រើពេលណា (When to Use):</p>
             <p class="step-text">ប្រើនៅពេលគម្រោងមាន Functions ច្រើន ហើយយើងចង់បំបែកកូដជាផ្នែកៗ (ដូចជា Database Config,
@@ -329,18 +356,26 @@ console.<span class="t-fn">log</span>(<span class="t-str">"ផលបូក៖"</
                 <code class="ic">path</code> (គ្រប់គ្រងទីតាំង Folder)។
             </p>
 
-            <p class="step-heading">2. មុខងារសំខាន់ៗ:</p>
-            <ul class="step-list">
-                <li><code class="ic">fs.writeFileSync()</code> <strong>(បង្កើត/សរសេរ File)៖</strong> បង្កើតឯកសារថ្មី
-                    ឬសរសេរទិន្នន័យចូលក្នុងឯកសារ។</li>
-                <li><code class="ic">fs.readFileSync()</code> <strong>(អានទិន្នន័យ File)៖</strong>
-                    អានអត្ថបទពីក្នុងឯកសារមកបង្ហាញ (ប្រើ <code class="ic">'utf8'</code> ដើម្បីអានអក្សរខ្មែរ/អង់គ្លេស)។
-                </li>
-                <li><code class="ic">path.join()</code> <strong>(តភ្ជាប់ទីតាំង File)៖</strong> តភ្ជាប់ឈ្មោះ Folder និង
-                    File ឱ្យត្រូវតាមប្រព័ន្ធប្រតិបត្តិការ (Windows ឬ macOS)។</li>
-                <li><code class="ic">__dirname</code> <strong>(ទីតាំងបច្ចុប្បន្ន)៖</strong> ជាអថេរពិសេសប្រាប់ពីទីតាំង
-                    Folder ដែលកូដកំពុងដំណើរការ។</li>
+            <p class="step-heading">2. មុខងារ និង Methods សំខាន់ៗ:</p>
+            <ul class="step-list" style="margin-bottom: 4px;">
+                <li><code class="ic">fs.writeFileSync(path, data)</code> <strong>(សរសេរ File)៖</strong> បង្កើតឯកសារថ្មី
+                    ឬសរសេរទិន្នន័យជាន់ពីលើ។</li>
+                <li><code class="ic">fs.readFileSync(path, 'utf8')</code> <strong>(អាន File)៖</strong>
+                    អានអត្ថបទពីក្នុងឯកសារមកបង្ហាញ (ប្រើ <code class="ic">'utf8'</code> ដើម្បីស្គាល់អក្សរខ្មែរ)។</li>
+                <li><code class="ic">path.join(__dirname, 'file')</code> <strong>(តភ្ជាប់ទីតាំង)៖</strong> តភ្ជាប់ឈ្មោះ
+                    Folder និង
+                    File ឱ្យត្រូវតាមប្រព័ន្ធប្រតិបត្តិការ (Windows / macOS)។</li>
             </ul>
+
+            <div style="margin-left: 16px;">
+                <p style="font-size: 0.80rem; font-weight: 600; margin: 2px 0;">អថេរ និងវិធីប្រើប្រាស់បន្ថែម៖</p>
+                <ul class="step-list" style="margin-top: 0;">
+                    <li><code class="ic">__dirname</code> <strong>(Current Directory)៖</strong> អថេរពិសេសប្រាប់ពីទីតាំង
+                        Folder ដែលឯកសារកូដកំពុងស្ថិតនៅ។</li>
+                    <li><code class="ic">fs.appendFileSync()</code> <strong>(Append)៖</strong>
+                        សរសេរទិន្នន័យបន្ថែមពីខាងចុងឯកសារដោយមិនលុបទិន្នន័យចាស់។</li>
+                </ul>
+            </div>
 
             <p class="step-heading">3. ប្រើពេលណា (When to Use):</p>
             <p class="step-text">ប្រើនៅពេលត្រូវការបង្កើត ឬអានឯកសារ (Logs, JSON, Text) នៅលើ Server ឬកំណត់ទីតាំង Folder
@@ -397,19 +432,32 @@ console.<span class="t-fn">log</span>(<span class="t-str">"ខ្លឹមសា
                 Server ដើម្បីទទួលសំណើ (<code class="ic">Request</code>) ពីអ្នកប្រើប្រាស់ និងបញ្ជូនទិន្នន័យត្រឡប់ទៅវិញ
                 (<code class="ic">Response</code>)។</p>
 
-            <p class="step-heading">2. មុខងារសំខាន់ៗ:</p>
-            <ul class="step-list">
-                <li><code class="ic">http.createServer()</code> <strong>(បង្កើត Server)៖</strong> បង្កើតកម្មវិធី Server
-                    ដែលមាន Parameter ពីរគឺ <code class="ic">req</code> (Request) និង <code class="ic">res</code>
-                    (Response)។</li>
-                <li><code class="ic">res.writeHead(200, ...)</code> <strong>(កំណត់ Header)៖</strong> កំណត់លេខកូដស្ថានភាព
-                    (200 = ជោគជ័យ) និងប្រភេទទិន្នន័យ (Text, HTML ឬ JSON)។</li>
-                <li><code class="ic">res.end()</code> <strong>(បញ្ចប់ការឆ្លើយតប)៖</strong> បញ្ជូនទិន្នន័យចុងក្រោយទៅកាន់
-                    Browser និងបិទការតភ្ជាប់នៃសំណើនោះ។</li>
+            <p class="step-heading">2. មុខងារ និង Methods សំខាន់ៗ:</p>
+            <ul class="step-list" style="margin-bottom: 4px;">
+                <li><code class="ic">http.createServer((req, res) =&gt; {})</code> <strong>(បង្កើត Server)៖</strong>
+                    បង្កើតកម្មវិធី Server
+                    សម្រាប់ទទួលសំណើ និងឆ្លើយតប។</li>
+                <li><code class="ic">res.writeHead(200, {...})</code> <strong>(កំណត់ Header)៖</strong>
+                    កំណត់លេខកូដស្ថានភាព
+                    (<code class="ic">200</code> = ជោគជ័យ) និងប្រភេទទិន្នន័យ (<code class="ic">Content-Type</code>)។
+                </li>
+                <li><code class="ic">res.end(data)</code> <strong>(បញ្ចប់ការឆ្លើយតប)៖</strong>
+                    បញ្ជូនទិន្នន័យចុងក្រោយទៅកាន់
+                    Client និងបិទការតភ្ជាប់នៃសំណើនោះ។</li>
                 <li><code class="ic">server.listen(3000)</code> <strong>(បើកដំណើរការ Port)៖</strong> កំណត់លេខ Port (ឧ.
                     <code class="ic">3000</code>) ដើម្បីឱ្យ Server រង់ចាំទទួលសំណើ។
                 </li>
             </ul>
+
+            <div style="margin-left: 16px;">
+                <p style="font-size: 0.80rem; font-weight: 600; margin: 2px 0;">Parameters ស្នូលទាំង ២ ក្នុង Server៖</p>
+                <ul class="step-list" style="margin-top: 0;">
+                    <li><code class="ic">req</code> <strong>(Request Object)៖</strong>
+                        ផ្ទុកព័ត៌មានសំណើដែលផ្ញើមកពីអ្នកប្រើប្រាស់ (URL, Method, Headers)។</li>
+                    <li><code class="ic">res</code> <strong>(Response Object)៖</strong> ប្រើសម្រាប់រៀបចំ
+                        និងបញ្ជូនទិន្នន័យត្រឡប់ទៅអ្នកប្រើប្រាស់វិញ។</li>
+                </ul>
+            </div>
 
             <p class="step-heading">3. Syntax (ទម្រង់កូដ):</p>
             <div class="code-box">
@@ -466,16 +514,28 @@ server.<span class="t-fn">listen</span>(<span class="t-num">3000</span>, () => {
                 ដែលជួយឱ្យការបង្កើត Server, ការគ្រប់គ្រង Routing និងការសរសេរ REST API មានភាពងាយស្រួល ខ្លី
                 និងមានរបៀបរៀបរយ។</p>
 
-            <p class="step-heading">2. មុខងារសំខាន់ៗ:</p>
-            <ul class="step-list">
-                <li><code class="ic">const app = express()</code> <strong>(បង្កើតកម្មវិធី Express)៖</strong>
+            <p class="step-heading">2. មុខងារ និងសមាសធាតុសំខាន់ៗ:</p>
+            <ul class="step-list" style="margin-bottom: 4px;">
+                <li><code class="ic">const app = express()</code> <strong>(បង្កើត App)៖</strong>
                     ចាប់ផ្តើមបង្កើត Instance របស់ Express ដើម្បីកំណត់ Routes និង Middleware។</li>
-                <li><code class="ic">res.json()</code> <strong>(បញ្ជូនទិន្នន័យ JSON)៖</strong> បំប្លែង Object ឬ Array
+                <li><code class="ic">res.json(data)</code> <strong>(ឆ្លើយតប JSON)៖</strong> បំប្លែង JavaScript Object
                     ទៅជាទម្រង់ JSON ដោយស្វ័យប្រវត្តិ (ងាយជាង <code class="ic">http</code> សុទ្ធ)។</li>
-                <li><strong>រចនាសម្ព័ន្ធ Folder ស្តង់ដារ៖</strong> បែងចែកជា <code class="ic">routes/</code>, <code
-                        class="ic">controllers/</code>, <code class="ic">models/</code>, <code class="ic">config/</code>
-                    និង <code class="ic">server.js</code>។</li>
+                <li><code class="ic">app.listen(PORT)</code> <strong>(បើក Server)៖</strong> ចាប់ផ្តើមដំណើរការ Express
+                    Server លើ Port ដែលកំណត់។</li>
             </ul>
+
+            <div style="margin-left: 16px;">
+                <p style="font-size: 0.80rem; font-weight: 600; margin: 2px 0;">រចនាសម្ព័ន្ធ Folder ស្តង់ដារក្នុង
+                    Express៖</p>
+                <ul class="step-list" style="margin-top: 0;">
+                    <li><code class="ic">routes/</code> &amp; <code class="ic">controllers/</code> <strong>៖</strong>
+                        បំបែកផ្លូវ URL និង Functions ដោះស្រាយកូដតាមមុខងារ។</li>
+                    <li><code class="ic">models/</code> &amp; <code class="ic">config/</code> <strong>៖</strong> ផ្ទុក
+                        Schema ទិន្នន័យ និងការកំណត់តភ្ជាប់ Database។</li>
+                    <li><code class="ic">server.js</code> <strong>(Entry Point)៖</strong>
+                        ឯកសារមេសម្រាប់ដំណើរការកម្មវិធីទាំងមូល។</li>
+                </ul>
+            </div>
 
             <p class="step-heading">3. ប្រើពេលណា (When to Use):</p>
             <p class="step-text">ប្រើនៅពេលបង្កើត Backend REST API សម្រាប់គេហទំព័រ (React, Next.js) ឬ Mobile App
@@ -533,17 +593,28 @@ app.<span class="t-fn">listen</span>(PORT, () => console.<span class="t-fn">log<
             <p class="step-text"><strong>Routing</strong> គឺជាការកំណត់ផ្លូវ (URL Endpoints) និងវិធីសាស្ត្រស្នើសុំ (HTTP
                 Methods) ដើម្បីឱ្យ Server ដឹងថាត្រូវឆ្លើយតបបែបណានៅពេលអ្នកប្រើប្រាស់ចូលទៅកាន់ URL ណាមួយ។</p>
 
-            <p class="step-heading">2. មុខងារសំខាន់ៗ (HTTP Methods ទាំង ៤ របស់ REST API):</p>
-            <ul class="step-list">
-                <li><code class="ic">app.get()</code> <strong>(Read - ទាញយកទិន្នន័យ)៖</strong> ប្រើសម្រាប់អាន
-                    ឬទាញបញ្ជីទិន្នន័យពី Server។</li>
-                <li><code class="ic">app.post()</code> <strong>(Create - បង្កើតទិន្នន័យថ្មី)៖</strong>
-                    ប្រើសម្រាប់បញ្ជូនទិន្នន័យថ្មីទៅរក្សាទុកក្នុង Server។</li>
-                <li><code class="ic">app.put()</code> <strong>(Update - កែប្រែទិន្នន័យ)៖</strong>
-                    ប្រើសម្រាប់កែប្រែព័ត៌មានដែលមានស្រាប់តាមរយៈ ID។</li>
-                <li><code class="ic">app.delete()</code> <strong>(Delete - លុបទិន្នន័យ)៖</strong>
-                    ប្រើសម្រាប់លុបទិន្នន័យចេញពីប្រព័ន្ធ។</li>
+            <p class="step-heading">2. មុខងារ និង HTTP Methods សំខាន់ៗ:</p>
+            <ul class="step-list" style="margin-bottom: 4px;">
+                <li><code class="ic">app.METHOD(path, handler)</code> <strong>(ទម្រង់ Route)៖</strong> កំណត់ HTTP Method
+                    ផ្លូវ URL និង Function សម្រាប់ឆ្លើយតប។</li>
+                <li><code class="ic">:id</code> <strong>(Dynamic Route Parameter)៖</strong> កំណត់ទីតាំង ID
+                    ប្រែប្រួលនៅក្នុងផ្លូវ URL (ឧ. <code class="ic">/api/courses/:id</code>)។</li>
             </ul>
+
+            <div style="margin-left: 16px;">
+                <p style="font-size: 0.80rem; font-weight: 600; margin: 2px 0;">HTTP Methods ទាំង ៤ របស់ REST API
+                    (CRUD)៖</p>
+                <ul class="step-list" style="margin-top: 0;">
+                    <li><code class="ic">app.get()</code> <strong>(GET - Read)៖</strong> ប្រើសម្រាប់អាន
+                        ឬទាញបញ្ជីទិន្នន័យពី Server។</li>
+                    <li><code class="ic">app.post()</code> <strong>(POST - Create)៖</strong>
+                        ប្រើសម្រាប់បញ្ជូនទិន្នន័យថ្មីទៅរក្សាទុកក្នុង Server។</li>
+                    <li><code class="ic">app.put()</code> <strong>(PUT - Update)៖</strong>
+                        ប្រើសម្រាប់កែប្រែព័ត៌មានដែលមានស្រាប់តាមរយៈ ID។</li>
+                    <li><code class="ic">app.delete()</code> <strong>(DELETE - Delete)៖</strong>
+                        ប្រើសម្រាប់លុបទិន្នន័យចេញពីប្រព័ន្ធ។</li>
+                </ul>
+            </div>
 
             <p class="step-heading">3. ប្រើពេលណា (When to Use):</p>
             <p class="step-text">ប្រើនៅពេលបង្កើត API Endpoints សម្រាប់ឱ្យ Frontend ធ្វើសកម្មភាពផ្សេងៗ ដូចជា
@@ -601,18 +672,28 @@ app.<span class="t-fn">delete</span>(<span class="t-str">'/api/courses/:id'</spa
             <p class="step-text">នៅពេល Frontend ឬ Postman ផ្ញើសំណើមកកាន់ Server ទិន្នន័យទាំងអស់ត្រូវបានផ្ទុកនៅក្នុង
                 Object <code class="ic">req</code> (Request) ដែលយើងអាចទាញយកតាម ៣ របៀបសំខាន់ៗ។</p>
 
-            <p class="step-heading">2. មុខងារសំខាន់ៗ:</p>
-            <ul class="step-list">
-                <li><code class="ic">req.params</code> <strong>(Route Parameters)៖</strong> ចាប់តម្លៃដែលភ្ជាប់ក្នុងផ្លូវ
-                    URL ផ្ទាល់ (ឧ. <code class="ic">/users/:id</code> ➔ <code class="ic">req.params.id</code>)។</li>
-                <li><code class="ic">req.query</code> <strong>(Query Strings)៖</strong> ចាប់តម្លៃស្វែងរកនៅខាងក្រោយសញ្ញា
-                    <code class="ic">?</code> (ឧ. <code class="ic">/search?name=node</code> ➔ <code
-                        class="ic">req.query.name</code>)។
-                </li>
-                <li><code class="ic">req.body</code> <strong>(Request Body)៖</strong> ចាប់ទិន្នន័យ JSON ដែលផ្ញើតាម <code
-                        class="ic">POST</code> ឬ <code class="ic">PUT</code> (ត្រូវបើក <code
-                        class="ic">app.use(express.json())</code> ជាមុន)។</li>
+            <p class="step-heading">2. មុខងារ និងវិធីចាប់ទិន្នន័យសំខាន់ៗ:</p>
+            <ul class="step-list" style="margin-bottom: 4px;">
+                <li><code class="ic">app.use(express.json())</code> <strong>(JSON Parser)៖</strong> ចាំបាច់ត្រូវបើកជាមុន
+                    ដើម្បីឱ្យ Express អាចអានទិន្នន័យក្នុង <code class="ic">req.body</code> បាន។</li>
+                <li><strong>Object Destructuring៖</strong> ទាញយក Properties ចេញពី <code class="ic">req.body</code>
+                    យ៉ាងខ្លី (ឧ. <code class="ic">const { name, email } = req.body</code>)។</li>
             </ul>
+
+            <div style="margin-left: 16px;">
+                <p style="font-size: 0.80rem; font-weight: 600; margin: 2px 0;">ប្រភពទិន្នន័យទាំង ៣ ក្នុង Request
+                    Object៖</p>
+                <ul class="step-list" style="margin-top: 0;">
+                    <li><code class="ic">req.params</code> <strong>(Route Parameters)៖</strong>
+                        ចាប់តម្លៃដែលភ្ជាប់ក្នុងផ្លូវ URL ផ្ទាល់ (ឧ. <code class="ic">/users/:id</code> ➔ <code
+                            class="ic">req.params.id</code>)។</li>
+                    <li><code class="ic">req.query</code> <strong>(Query Strings)៖</strong>
+                        ចាប់តម្លៃស្វែងរកនៅខាងក្រោយសញ្ញា <code class="ic">?</code> (ឧ. <code
+                            class="ic">/search?role=admin</code> ➔ <code class="ic">req.query.role</code>)។</li>
+                    <li><code class="ic">req.body</code> <strong>(Request Body)៖</strong> ចាប់ទិន្នន័យ JSON ដែលផ្ញើតាម
+                        <code class="ic">POST</code> ឬ <code class="ic">PUT</code>។</li>
+                </ul>
+            </div>
 
             <p class="step-heading">3. ប្រើពេលណា (When to Use):</p>
             <p class="step-text">ប្រើ <code class="ic">params</code> ពេលចង់មើល ឬលុបទិន្នន័យតាម ID ជាក់លាក់, ប្រើ <code
@@ -674,15 +755,26 @@ app.<span class="t-fn">post</span>(<span class="t-str">'/api/users'</span>, (req
                 (ដូចជាអ្នកត្រួតពិនិត្យសំបុត្រមុនចូលរោងកុន)។
             </p>
 
-            <p class="step-heading">2. មុខងារសំខាន់ៗ:</p>
-            <ul class="step-list">
-                <li><code class="ic">app.use(express.json())</code> <strong>(Built-in Middleware)៖</strong>
-                    បំប្លែងទិន្នន័យ JSON ដែលផ្ញើមកឱ្យក្លាយជា JavaScript Object។</li>
-                <li><code class="ic">app.use(cors())</code> <strong>(Third-party Middleware)៖</strong> អនុញ្ញាតឱ្យ
-                    Frontend (ដូចជា React នៅ Port 3000) អាចហៅ API ពី Backend (Port 5000) បាន។</li>
+            <p class="step-heading">2. មុខងារ និងពាក្យគន្លឹះសំខាន់ៗ:</p>
+            <ul class="step-list" style="margin-bottom: 4px;">
+                <li><code class="ic">app.use(middleware)</code> <strong>(បើកប្រើ Middleware)៖</strong> កំណត់ឱ្យ
+                    Middleware ដំណើរការលើគ្រប់ Requests ទាំងអស់។</li>
                 <li><code class="ic">next()</code> <strong>(បន្តដំណើរការ)៖</strong> ជា Function សម្រាប់ប្រាប់ Express
-                    ឱ្យបន្តទៅកាន់ Route ឬ Middleware បន្ទាប់ទៀត។</li>
+                    ឱ្យបន្តទៅកាន់ Route ឬ Middleware បន្ទាប់ (បើភ្លេចហៅ កម្មវិធីនឹងគាំង)។</li>
             </ul>
+
+            <div style="margin-left: 16px;">
+                <p style="font-size: 0.80rem; font-weight: 600; margin: 2px 0;">ប្រភេទ Middleware ទាំង ៣ ក្នុង
+                    Express.js៖</p>
+                <ul class="step-list" style="margin-top: 0;">
+                    <li><strong>Built-in Middleware៖</strong> ភ្ជាប់មកស្រាប់ក្នុង Express (ឧ. <code
+                            class="ic">express.json()</code> សម្រាប់អានទិន្នន័យ JSON)។</li>
+                    <li><strong>Third-party Middleware៖</strong> ដំឡើងបន្ថែមតាម NPM (ឧ. <code class="ic">cors()</code>
+                        ដើម្បីអនុញ្ញាតឱ្យ Frontend ភ្ជាប់មក API)។</li>
+                    <li><strong>Custom Middleware៖</strong> សរសេរដោយខ្លួនឯង <code
+                            class="ic">(req, res, next) =&gt; {}</code> សម្រាប់ពិនិត្យ Token (Auth) ឬ Log។</li>
+                </ul>
+            </div>
 
             <p class="step-heading">3. ប្រើពេលណា (When to Use):</p>
             <p class="step-text">ប្រើនៅពេលត្រូវការបើកសិទ្ធិ CORS ឱ្យ Frontend ភ្ជាប់មក, អាន JSON Body, ពិនិត្យ Token
@@ -742,16 +834,26 @@ app.<span class="t-fn">use</span>(logger);</pre>
                 ដោយបំបែកផ្នែកកំណត់ផ្លូវ (<code class="ic">Routes</code>) ផ្នែកដោះស្រាយតក្កវិជ្ជា (<code
                     class="ic">Controllers</code>) និងផ្នែកទិន្នន័យ (<code class="ic">Models</code>) ដាច់ពីគ្នា។</p>
 
-            <p class="step-heading">2. មុខងារសំខាន់ៗ:</p>
-            <ul class="step-list">
-                <li><code class="ic">express.Router()</code> <strong>(បង្កើត Route ដាច់ដោយឡែក)៖</strong> ជួយបំបែកផ្លូវ
-                    API តាមក្រុមមុខងារ (ឧ. <code class="ic">userRoutes.js</code>, <code
-                        class="ic">productRoutes.js</code>)។</li>
-                <li><strong>Controllers៖</strong> ផ្ទុក Functions សម្រាប់ដំណើរការកូដ និងទាញទិន្នន័យពី Database
-                    ដើម្បីកុំឱ្យឯកសារ Routes វែងពេក។</li>
-                <li><code class="ic">app.use('/api/products', productRoutes)</code> <strong>(ភ្ជាប់ Route ចូល
-                        Server)៖</strong> កំណត់ Prefix URL រួមសម្រាប់ Route នោះ។</li>
+            <p class="step-heading">2. មុខងារ និងសមាសធាតុសំខាន់ៗ:</p>
+            <ul class="step-list" style="margin-bottom: 4px;">
+                <li><code class="ic">express.Router()</code> <strong>(បង្កើត Route)៖</strong> ជួយបំបែកផ្លូវ API
+                    តាមក្រុមមុខងារ (ឧ. <code class="ic">userRoutes.js</code>, <code class="ic">productRoutes.js</code>)។
+                </li>
+                <li><code class="ic">app.use('/api/products', router)</code> <strong>(ភ្ជាប់ Route)៖</strong> កំណត់
+                    Prefix URL រួមសម្រាប់ភ្ជាប់ Route ចូលក្នុង <code class="ic">server.js</code>។</li>
             </ul>
+
+            <div style="margin-left: 16px;">
+                <p style="font-size: 0.80rem; font-weight: 600; margin: 2px 0;">តួនាទីសំខាន់ៗក្នុង MVC Architecture៖</p>
+                <ul class="step-list" style="margin-top: 0;">
+                    <li><strong>Model៖</strong> គ្រប់គ្រងរចនាសម្ព័ន្ធទិន្នន័យ និងការតភ្ជាប់ជាមួយ Database (Mongoose
+                        Schema)។</li>
+                    <li><strong>Controller៖</strong> ផ្ទុក Functions សម្រាប់ដំណើរការតក្កវិជ្ជា និងរៀបចំទិន្នន័យឆ្លើយតបទៅ
+                        Client។</li>
+                    <li><strong>Route (ជំនួស View ក្នុង REST API)៖</strong> កំណត់ URL Endpoints ហើយបញ្ជូនសំណើទៅកាន់
+                        Controller។</li>
+                </ul>
+            </div>
 
             <p class="step-heading">3. ប្រើពេលណា (When to Use):</p>
             <p class="step-text">ប្រើនៅពេលគម្រោង API ចាប់ផ្តើមមាន Endpoints ច្រើន (ដូចជា Users, Products, Orders)
@@ -810,17 +912,28 @@ module.exports = router;</pre>
                 គឺជាឯកសារពិសេសសម្រាប់រក្សាទុកព័ត៌មានសម្ងាត់ និងការកំណត់ប្រព័ន្ធ ដូចជាលេខ Port, Database URL, និង API
                 Keys ដោយមិនសរសេរចូលក្នុងកូដផ្ទាល់។</p>
 
-            <p class="step-heading">2. មុខងារសំខាន់ៗ:</p>
-            <ul class="step-list">
-                <li><code class="ic">npm install dotenv</code> <strong>(ដំឡើងកញ្ចប់ dotenv)៖</strong> ជា Library
-                    សម្រាប់អានទិន្នន័យពីឯកសារ <code class="ic">.env</code> ចូលមកក្នុង Node.js។</li>
+            <p class="step-heading">2. មុខងារ និងពាក្យបញ្ជាសំខាន់ៗ:</p>
+            <ul class="step-list" style="margin-bottom: 4px;">
+                <li><code class="ic">npm install dotenv</code> <strong>(ដំឡើង)៖</strong> ដំឡើងកញ្ចប់ <code
+                        class="ic">dotenv</code>
+                    សម្រាប់អានទិន្នន័យពីឯកសារ <code class="ic">.env</code>។</li>
                 <li><code class="ic">require('dotenv').config()</code> <strong>(បើកដំណើរការ)៖</strong>
                     ត្រូវសរសេរនៅបន្ទាត់លើគេបង្អស់នៃឯកសារ <code class="ic">server.js</code>។</li>
-                <li><code class="ic">process.env.VARIABLE_NAME</code> <strong>(ហៅតម្លៃមកប្រើ)៖</strong>
-                    ប្រើសម្រាប់ទាញយកតម្លៃពី <code class="ic">.env</code> មកប្រើក្នុងកូដ។</li>
-                <li><strong>សុវត្ថិភាព (.gitignore)៖</strong> ត្រូវដាក់ <code class="ic">.env</code> ចូលក្នុង <code
-                        class="ic">.gitignore</code> ដើម្បីកុំឱ្យបែកធ្លាយពាក្យសម្ងាត់លើ GitHub។</li>
+                <li><code class="ic">process.env.KEY_NAME</code> <strong>(ហៅតម្លៃមកប្រើ)៖</strong>
+                    ទាញយកតម្លៃអថេរពី <code class="ic">.env</code> មកប្រើប្រាស់ក្នុងកូដ។</li>
             </ul>
+
+            <div style="margin-left: 16px;">
+                <p style="font-size: 0.80rem; font-weight: 600; margin: 2px 0;">គោលការណ៍សុវត្ថិភាពសំខាន់ៗ៖</p>
+                <ul class="step-list" style="margin-top: 0;">
+                    <li><strong>ការពារលើ GitHub (<code class="ic">.gitignore</code>)៖</strong> ត្រូវបន្ថែម <code
+                            class="ic">.env</code> ចូលក្នុង <code class="ic">.gitignore</code> ជានិច្ច
+                        ដើម្បីកុំឱ្យបែកធ្លាយពាក្យសម្ងាត់។</li>
+                    <li><strong>Fallback Value (<code class="ic">||</code>)៖</strong> កំណត់តម្លៃបម្រុងទុក (ឧ. <code
+                            class="ic">process.env.PORT || 3000</code>) ការពារពេលរកមិនឃើញ <code class="ic">.env</code>។
+                    </li>
+                </ul>
+            </div>
 
             <p class="step-heading">3. ប្រើពេលណា (When to Use):</p>
             <p class="step-text">ប្រើរាល់ពេលភ្ជាប់ Database, រក្សាទុក JWT Secret Key ឬមុនពេល Push កូដគម្រោងទៅកាន់ GitHub
@@ -878,15 +991,28 @@ console.<span class="t-fn">log</span>(<span class="t-str">"Port ពី .env គ�
                 Node.js/Express.js ទៅកាន់ MongoDB និងជួយកំណត់រចនាសម្ព័ន្ធទិន្នន័យ (<code class="ic">Schema</code>)
                 ឱ្យមានស្តង់ដារច្បាស់លាស់។</p>
 
-            <p class="step-heading">2. មុខងារសំខាន់ៗ:</p>
-            <ul class="step-list">
-                <li><code class="ic">mongoose.connect()</code> <strong>(តភ្ជាប់ Database)៖</strong> ភ្ជាប់ Server ទៅកាន់
+            <p class="step-heading">2. មុខងារ និង Methods សំខាន់ៗ:</p>
+            <ul class="step-list" style="margin-bottom: 4px;">
+                <li><code class="ic">mongoose.connect(uri)</code> <strong>(តភ្ជាប់ Database)៖</strong> ភ្ជាប់ Server
+                    ទៅកាន់
                     MongoDB Compass (Local) ឬ MongoDB Atlas (Cloud)។</li>
-                <li><code class="ic">new mongoose.Schema()</code> <strong>(បង្កើតគំរូទិន្នន័យ)៖</strong> កំណត់ឈ្មោះ
-                    Fields និងប្រភេទទិន្នន័យ (String, Number, Boolean)។</li>
-                <li><code class="ic">mongoose.model()</code> <strong>(បង្កើត Model)៖</strong> បង្កើត Collection ក្នុង
-                    Database ដើម្បីប្រើសម្រាប់បង្កើត អាន កែ និងលុបទិន្នន័យ។</li>
+                <li><code class="ic">new mongoose.Schema({...})</code> <strong>(បង្កើតគំរូទិន្នន័យ)៖</strong> កំណត់ឈ្មោះ
+                    Fields, ប្រភេទទិន្នន័យ (<code class="ic">String</code>, <code class="ic">Number</code>, <code
+                        class="ic">Boolean</code>) និងលក្ខខណ្ឌ (<code class="ic">required</code>)។</li>
+                <li><code class="ic">mongoose.model('Name', schema)</code> <strong>(បង្កើត Model)៖</strong> បង្កើត
+                    Collection ក្នុង
+                    Database ដើម្បីយកទៅប្រើសម្រាប់ប្រតិបត្តិការ CRUD។</li>
             </ul>
+
+            <div style="margin-left: 16px;">
+                <p style="font-size: 0.80rem; font-weight: 600; margin: 2px 0;">ជម្រើសបន្ថែមក្នុង Schema (Schema
+                    Options)៖</p>
+                <ul class="step-list" style="margin-top: 0;">
+                    <li><code class="ic">{ timestamps: true }</code> <strong>៖</strong> បន្ថែម <code
+                            class="ic">createdAt</code> និង <code class="ic">updatedAt</code>
+                        ដោយស្វ័យប្រវត្តិរាល់ពេលបង្កើត ឬកែប្រែទិន្នន័យ។</li>
+                </ul>
+            </div>
 
             <p class="step-heading">3. ប្រើពេលណា (When to Use):</p>
             <p class="step-text">ប្រើនៅពេលត្រូវការរក្សាទុកទិន្នន័យជាអចិន្ត្រៃយ៍ (Persistent Storage) ក្នុង MongoDB
@@ -950,18 +1076,28 @@ mongoose.<span class="t-fn">connect</span>(process.env.MONGO_URI)
                 (អាន), <strong>Update</strong> (កែប្រែ) និង <strong>Delete</strong> (លុប) ដែលជាប្រតិបត្តិការស្នូលទាំង ៤
                 របស់ Backend API ជាមួយ Database ដោយប្រើ <code class="ic">async / await</code>។</p>
 
-            <p class="step-heading">2. មុខងារសំខាន់ៗរបស់ Mongoose Model:</p>
-            <ul class="step-list">
-                <li><code class="ic">Student.create(req.body)</code> <strong>(Create)៖</strong>
-                    រក្សាទុកទិន្នន័យថ្មីចូលក្នុង MongoDB។</li>
-                <li><code class="ic">Student.find()</code> <strong>(Read)៖</strong> ទាញយកបញ្ជីទិន្នន័យទាំងអស់ពី Database
-                    (ឬ <code class="ic">findById()</code> សម្រាប់ទិន្នន័យមួយ)។</li>
-                <li><code class="ic">Student.findByIdAndUpdate(id, req.body, { new: true })</code>
-                    <strong>(Update)៖</strong> កែប្រែទិន្នន័យតាម ID និងត្រឡប់ទិន្នន័យថ្មីមកវិញ។
-                </li>
-                <li><code class="ic">Student.findByIdAndDelete(id)</code> <strong>(Delete)៖</strong> លុបទិន្នន័យចេញពី
-                    Database តាម ID។</li>
+            <p class="step-heading">2. មុខងារ និងពាក្យគន្លឹះសំខាន់ៗ:</p>
+            <ul class="step-list" style="margin-bottom: 4px;">
+                <li><code class="ic">async / await</code> <strong>(Asynchronous)៖</strong> ប្រើសម្រាប់រង់ចាំឱ្យ Database
+                    ដំណើរការចប់សព្វគ្រប់ មុននឹងបន្តទៅបន្ទាត់កូដបន្ទាប់។</li>
+                <li><code class="ic">{ new: true }</code> <strong>(Return Updated Data)៖</strong> កំណត់ឱ្យ Mongoose
+                    ត្រឡប់ទិន្នន័យថ្មីដែលទើបកែប្រែរួចមកវិញ។</li>
             </ul>
+
+            <div style="margin-left: 16px;">
+                <p style="font-size: 0.80rem; font-weight: 600; margin: 2px 0;">Mongoose CRUD Methods ទាំង ៤ ប្រភេទ៖</p>
+                <ul class="step-list" style="margin-top: 0;">
+                    <li><strong>C - Create៖</strong> <code class="ic">Model.create(req.body)</code> បង្កើត
+                        និងរក្សាទុកទិន្នន័យថ្មីចូល MongoDB។</li>
+                    <li><strong>R - Read៖</strong> <code class="ic">Model.find()</code> ទាញបញ្ជីទិន្នន័យទាំងអស់ (ឬ <code
+                            class="ic">Model.findById(id)</code> សម្រាប់ទិន្នន័យមួយ)។</li>
+                    <li><strong>U - Update៖</strong> <code
+                            class="ic">Model.findByIdAndUpdate(id, req.body, { new: true })</code> កែប្រែទិន្នន័យតាម ID។
+                    </li>
+                    <li><strong>D - Delete៖</strong> <code class="ic">Model.findByIdAndDelete(id)</code>
+                        លុបទិន្នន័យចេញពី Database តាម ID។</li>
+                </ul>
+            </div>
 
             <p class="step-heading">3. ប្រើពេលណា (When to Use):</p>
             <p class="step-text">ប្រើនៅពេលបង្កើតមុខងារគ្រប់គ្រងទិន្នន័យពេញលេញក្នុងប្រព័ន្ធ ដូចជា ប្រព័ន្ធគ្រប់គ្រងសិស្ស
@@ -1027,19 +1163,29 @@ app.<span class="t-fn">delete</span>(<span class="t-str">'/api/students/:id'</sp
                 ID ខុសទម្រង់ ឬ Database ដាច់) ដើម្បីកុំឱ្យ Server គាំង (Crash)
                 និងបញ្ជូនសារប្រាប់អ្នកប្រើប្រាស់វិញឱ្យបានត្រឹមត្រូវ។</p>
 
-            <p class="step-heading">2. មុខងារសំខាន់ៗ (HTTP Status Codes ស្តង់ដារ):</p>
-            <ul class="step-list">
-                <li><code class="ic">200 OK</code> / <code class="ic">201 Created</code> <strong>(ជោគជ័យ)៖</strong>
-                    <code class="ic">200</code> ប្រតិបត្តិការជោគជ័យ និង <code class="ic">201</code>
-                    បង្កើតទិន្នន័យថ្មីជោគជ័យ។
-                </li>
-                <li><code class="ic">400 Bad Request</code> <strong>(ទិន្នន័យបញ្ចូលមិនត្រឹមត្រូវ)៖</strong>
-                    អ្នកប្រើប្រាស់បំពេញទិន្នន័យខ្វះ ឬខុសលក្ខខណ្ឌ។</li>
-                <li><code class="ic">404 Not Found</code> <strong>(រកមិនឃើញ)៖</strong> ផ្លូវ URL ឬ ID
-                    ទិន្នន័យដែលស្វែងរកមិនមាននៅក្នុងប្រព័ន្ធ។</li>
-                <li><code class="ic">500 Internal Server Error</code> <strong>(កំហុសខាង Server)៖</strong> កំហុសកូដ ឬ
-                    Database (ចាប់តាមរយៈ <code class="ic">try { ... } catch (err) { ... }</code>)។</li>
+            <p class="step-heading">2. មុខងារ និងពាក្យគន្លឹះសំខាន់ៗ:</p>
+            <ul class="step-list" style="margin-bottom: 4px;">
+                <li><code class="ic">try { ... } catch (error) { ... }</code> <strong>(ចាប់កំហុស)៖</strong> ស្រោបកូដ
+                    <code class="ic">async / await</code> ដើម្បីចាប់យកកំហុសមកដោះស្រាយដោយសុវត្ថិភាព។</li>
+                <li><code class="ic">res.status(code).json(...)</code> <strong>(បញ្ជូន Status Code)៖</strong>
+                    កំណត់លេខកូដស្ថានភាព HTTP ភ្ជាប់ជាមួយសារ JSON ត្រឡប់ទៅ Client។</li>
             </ul>
+
+            <div style="margin-left: 16px;">
+                <p style="font-size: 0.80rem; font-weight: 600; margin: 2px 0;">HTTP Status Codes ស្តង់ដារទាំង ៤ ក្រុម៖
+                </p>
+                <ul class="step-list" style="margin-top: 0;">
+                    <li><code class="ic">200 OK</code> / <code class="ic">201 Created</code> <strong>(ជោគជ័យ)៖</strong>
+                        <code class="ic">200</code> ដំណើរការជោគជ័យ និង <code class="ic">201</code>
+                        បង្កើតទិន្នន័យថ្មីជោគជ័យ។</li>
+                    <li><code class="ic">400 Bad Request</code> <strong>(ទិន្នន័យខុស)៖</strong>
+                        អ្នកប្រើប្រាស់បញ្ចូលទិន្នន័យខ្វះ ឬខុសលក្ខខណ្ឌ។</li>
+                    <li><code class="ic">404 Not Found</code> <strong>(រកមិនឃើញ)៖</strong> ផ្លូវ URL ឬ ID
+                        ទិន្នន័យដែលស្វែងរកមិនមានក្នុងប្រព័ន្ធ។</li>
+                    <li><code class="ic">500 Internal Server Error</code> <strong>(កំហុស Server)៖</strong>
+                        កំហុសបច្ចេកទេសខាង Server ឬ Database ដាច់ការតភ្ជាប់។</li>
+                </ul>
+            </div>
 
             <p class="step-heading">3. ប្រើពេលណា (When to Use):</p>
             <p class="step-text">ប្រើគ្រប់ពេលសរសេរកូដ <code class="ic">async / await</code> ជាមួយ Database
@@ -1100,7 +1246,7 @@ app.<span class="t-fn">delete</span>(<span class="t-str">'/api/students/:id'</sp
             </p>
             <div class="contact-card">
                 <p><strong>រៀបចំ និងចងក្រងដោយ៖ លាត ប្រុស</strong></p>
-                <p style="color: var(--primary); font-weight: 600; margin-top: 4px;">Bros Like Teaching — Web
+                <p style="color: var(--primary); font-weight: 600; margin-top: 4px;">Web
                     Development &amp; Programming</p>
             </div>
         </div>
