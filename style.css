@@ -300,7 +300,7 @@ code.ic {
     padding: 7px 11px;
     border-radius: 6px;
     font-size: 0.82rem;
-    line-height: 1.55;
+    line-height: 1.7;
     margin-top: 8px;
 }
 
@@ -326,6 +326,7 @@ code.ic {
     font-size: 0.84rem;
     padding: 5px 6px;
     border-bottom: 1px dashed #CBD5E1;
+    /* transition: all 0.3ms; */
 }
 
 .toc-item a:hover {
@@ -338,40 +339,145 @@ code.ic {
     color: var(--primary);
 }
 
-/* Thank You Page */
+/* Thank You Page (Modern Cover Style) */
+.thank-you-page {
+    background: linear-gradient(145deg, #0F172A 0%, #14532D 55%, #15803D 100%);
+    color: #FFFFFF;
+    padding: 16mm 20mm 14mm 20mm;
+}
+
+.ty-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 8px;
+    font-size: 0.8rem;
+    color: #BBF7D0;
+    font-weight: 600;
+}
+
+.ty-top-bar a {
+    color: #4ADE80;
+    text-decoration: none;
+    font-weight: 700;
+}
+
 .thank-you-box {
-    text-align: center;
     margin: auto 0;
-    padding: 32px 24px;
-    border: 2px solid var(--primary-light);
+    padding: 36px 30px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 16px;
-    background: linear-gradient(180deg, #F0FDF4 0%, #FFFFFF 100%);
+    text-align: center;
 }
 
 .thank-you-title {
-    font-size: 2.1rem;
+    font-size: 2.5rem;
     font-weight: 700;
-    color: var(--primary-dark);
-    margin-bottom: 12px;
+    color: #FFFFFF;
+    margin-bottom: 6px;
+}
+
+.thank-you-subtitle {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #4ADE80;
+    margin-bottom: 20px;
 }
 
 .thank-you-desc {
-    font-size: 0.98rem;
-    color: var(--text);
-    max-width: 82%;
-    margin: 0 auto 24px auto;
-    line-height: 1.7;
+    font-size: 0.96rem;
+    color: #E2E8F0;
+    max-width: 88%;
+    margin: 0 auto 28px auto;
+    line-height: 1.75;
+    text-align: left;
+    border-left: 4px solid #4ADE80;
+    padding-left: 14px;
 }
 
 .contact-card {
     display: inline-block;
-    background: #FFFFFF;
-    border: 1px solid var(--border);
+    background: rgba(15, 23, 42, 0.55);
+    border: 1px solid rgba(74, 222, 128, 0.35);
+    border-radius: 12px;
+    padding: 14px 32px;
+}
+
+.contact-card .author-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+.contact-card .author-role {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: #4ADE80;
+    margin-top: 3px;
+}
+
+.ty-foot {
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.82rem;
+    color: #E2E8F0;
+    font-weight: 500;
+}
+
+/* Author Contact Banner & Telegram Button */
+.author-banner {
+    width: 100%;
+    margin-top: 28px;
+    padding: 16px 22px;
+    background: rgba(15, 23, 42, 0.48);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.author-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.author-label {
+    font-size: 0.82rem;
+    color: #CBD5E1;
+    margin-bottom: 2px;
+}
+
+.author-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #FFFFFF;
+}
+
+.btn-telegram {
+
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 700;
+    font-size: 0.92rem;
+    padding: 11px 22px;
     border-radius: 10px;
-    padding: 14px 28px;
-    font-size: 0.9rem;
-    color: var(--dark);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    text-decoration: none;
+    white-space: nowrap;
+    background: #FFFFFF;
+    color: #14532D;
+    box-shadow: 0 4px 18px rgba(255, 255, 255, 0.25);
+    transition: all 0.2s;
+}
+
+.btn-telegram:hover {
+    background: #e2e2e2;
 }
 
 /* Responsive សម្រាប់អេក្រង់ទូរស័ព្ទ និង Tablet */
@@ -452,5 +558,16 @@ code.ic {
     .thank-you-desc {
         max-width: 100%;
         font-size: 0.9rem;
+    }
+
+    .author-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 14px 16px;
+    }
+
+    .btn-telegram {
+        width: 100%;
+        justify-content: center;
     }
 }
